@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,6 +23,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'r2+kl0ci5#p_h4(e4edde8zko5ch%pp^jc-3z%rvh@fzmtv%09'
 
+SITE_ID = 40
+
+REVIEWER_SITE_ID = 1
+
+APP_NAME = 'flourish'
+
+AUTO_CREATE_KEYS = False
+
+ETC_DIR = '/etc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -35,8 +45,25 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_crypto_fields.apps.AppConfig',
+    'django_q',
+    'edc_action_item.apps.AppConfig',
+    'edc_dashboard.apps.AppConfig',
+    'edc_device.apps.AppConfig',
+    'edc_lab.apps.AppConfig',
+    'edc_navbar.apps.AppConfig',
+    'edc_subject_dashboard.apps.AppConfig',
+    'flourish_dashboard.apps.AppConfig',
+    'flourish_maternal.apps.AppConfig',
+    'flourish.apps.EdcAppointmentAppConfig',
+    'flourish.apps.EdcBaseAppConfig',
+    'flourish.apps.EdcDataManagerAppConfig',
+    'flourish.apps.EdcProtocolAppConfig',
+    'flourish.apps.EdcTimepointAppConfig',
+    'flourish.apps.AppConfig',
 ]
 
 MIDDLEWARE = [
@@ -45,8 +72,11 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.sites.middleware.CurrentSiteMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'edc_dashboard.middleware.DashboardMiddleware',
+    'edc_subject_dashboard.middleware.DashboardMiddleware',
 ]
 
 ROOT_URLCONF = 'flourish.urls'
@@ -113,8 +143,21 @@ USE_L10N = True
 
 USE_TZ = True
 
+DASHBOARD_URL_NAMES = {
+    'subject_listboard_url': 'flourish_dashboard:subject_listboard_url',
+    'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
+}
+
+DASHBOARD_BASE_TEMPLATES = {
+    'listboard_base_template': 'flourish/base.html',
+    'dashboard_base_template': 'flourish/base.html',
+    'subject_listboard_template': 'flourish_dashboard/maternal_subject/listboard.html',
+    }
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'flourish', 'static')

@@ -146,14 +146,15 @@ USE_TZ = True
 DASHBOARD_URL_NAMES = {
     'subject_listboard_url': 'flourish_dashboard:subject_listboard_url',
     'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
+    'maternal_screening_listboard_url': 'flourish_dashboard:maternal_screening_listboard_url',
 }
 
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'flourish/base.html',
     'dashboard_base_template': 'flourish/base.html',
     'subject_listboard_template': 'flourish_dashboard/maternal_subject/listboard.html',
+    'maternal_screening_listboard_template': 'flourish_dashboard/screening/maternal_listboard.html',
     }
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/

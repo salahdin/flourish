@@ -11,5 +11,12 @@ flourish.append_item(
         fa_icon='far fa-user-circle',
         url_name=settings.DASHBOARD_URL_NAMES.get('subject_listboard_url')))
 
+flourish.append_item(
+    NavbarItem(
+        name='maternal_screening',
+        label='Maternal Screening',
+        fa_icon='far fa-user-circle',
+        url_name=settings.DASHBOARD_URL_NAMES.get('maternal_screening_listboard_url')))
+
 
 site_navbars.register(flourish)

@@ -31,6 +31,8 @@ APP_NAME = 'flourish'
 
 AUTO_CREATE_KEYS = False
 
+LOGIN_REDIRECT_URL = 'home_url'
+
 ETC_DIR = '/etc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

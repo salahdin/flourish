@@ -149,6 +149,7 @@ DASHBOARD_URL_NAMES = {
     'subject_listboard_url': 'flourish_dashboard:subject_listboard_url',
     'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
     'maternal_screening_listboard_url': 'flourish_dashboard:maternal_screening_listboard_url',
+
 }
 
 DASHBOARD_BASE_TEMPLATES = {

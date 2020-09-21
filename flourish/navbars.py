@@ -13,6 +13,13 @@ flourish.append_item(
 
 flourish.append_item(
     NavbarItem(
+        name='maternal_locator',
+        label='Maternal Locator',
+        fa_icon='far fa-user-circle',
+        url_name=settings.DASHBOARD_URL_NAMES.get('maternal_locator_listboard_url')))
+
+flourish.append_item(
+    NavbarItem(
         name='maternal_subject',
         label='Maternal Subjects',
         fa_icon='far fa-user-circle',

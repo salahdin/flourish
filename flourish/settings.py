@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'edc_identifier.apps.AppConfig',
     'edc_lab.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
+    'edc_registration.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
     'flourish_dashboard.apps.AppConfig',
     'flourish_maternal.apps.AppConfig',

@@ -9,7 +9,7 @@ flourish.append_item(
         name='maternal_locator',
         label='Maternal Locator',
         fa_icon='far fa-user-circle',
-        url_name=settings.DASHBOARD_URL_NAMES.get('maternal_locator_listboard_url')))
+        url_name=settings.DASHBOARD_URL_NAMES.get('maternal_dataset_listboard_url')))
 
 flourish.append_item(
     NavbarItem(

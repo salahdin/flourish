@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django_q',
     'django_extensions',
     'edc_action_item.apps.AppConfig',
+    'edc_consent.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
     'edc_identifier.apps.AppConfig',
@@ -61,8 +62,10 @@ INSTALLED_APPS = [
     'edc_navbar.apps.AppConfig',
     'edc_registration.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
+    'edc_visit_schedule.apps.AppConfig',
     'flourish_dashboard.apps.AppConfig',
     'flourish_maternal.apps.AppConfig',
+    'flourish_infant.apps.AppConfig',
     'flourish.apps.EdcAppointmentAppConfig',
     'flourish.apps.EdcBaseAppConfig',
     'flourish.apps.EdcDataManagerAppConfig',
@@ -110,8 +113,10 @@ WSGI_APPLICATION = 'flourish.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': os.path.join(ETC_DIR, APP_NAME, 'mysql.conf'),
+        }
     }
 }
 
@@ -152,7 +157,7 @@ DASHBOARD_URL_NAMES = {
     'subject_listboard_url': 'flourish_dashboard:subject_listboard_url',
     'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
     'maternal_screening_listboard_url': 'flourish_dashboard:maternal_screening_listboard_url',
-    'maternal_locator_listboard_url': 'flourish_dashboard:maternal_locator_listboard_url',
+    'maternal_dataset_listboard_url': 'flourish_dashboard:maternal_dataset_listboard_url',
 
 }
 
@@ -161,7 +166,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'dashboard_base_template': 'flourish/base.html',
     'subject_listboard_template': 'flourish_dashboard/maternal_subject/listboard.html',
     'maternal_screening_listboard_template': 'flourish_dashboard/screening/maternal_listboard.html',
-    'maternal_locator_listboard_template': 'flourish_dashboard/locator/maternal_listboard.html',
+    'maternal_dataset_listboard_template': 'flourish_dashboard/maternal_dataset/maternal_listboard.html',
     }
 
 # Static files (CSS, JavaScript, Images)

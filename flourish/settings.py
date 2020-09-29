@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'edc_subject_dashboard.apps.AppConfig',
     'flourish_dashboard.apps.AppConfig',
     'flourish_maternal.apps.AppConfig',
+    'flourish_infant.apps.AppConfig',
     'flourish.apps.EdcAppointmentAppConfig',
     'flourish.apps.EdcBaseAppConfig',
     'flourish.apps.EdcDataManagerAppConfig',
@@ -109,8 +110,10 @@ WSGI_APPLICATION = 'flourish.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': os.path.join(ETC_DIR, APP_NAME, 'mysql.conf'),
+        }
     }
 }
 

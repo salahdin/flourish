@@ -40,7 +40,7 @@ urlpatterns = [
     path('admin/flourish_maternal/', RedirectView.as_view(url='admin/flourish_maternal/'),
          name='maternal_subject_models_url'),
     path('flourish_maternal/', include('flourish_maternal.urls')),
-     path('flourish_child/', include('flourish_infant.urls')),
+     path('flourish_child/', include('flourish_child.urls')),
     path('maternal_subject/', include('flourish_dashboard.urls')),
     path('edc_base/', include('edc_base.urls')),
     path('edc_consent/', include('edc_consent.urls')),

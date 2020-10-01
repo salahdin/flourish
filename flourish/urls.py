@@ -21,7 +21,7 @@ from django.views.generic.base import RedirectView
 from edc_appointment.admin_site import edc_appointment_admin
 from flourish_maternal.admin_site import flourish_maternal_admin
 from edc_visit_schedule.admin_site import edc_visit_schedule_admin
-from flourish_infant.admin_site import flourish_infant_admin
+from flourish_child.admin_site import flourish_child_admin
 
 
 from .views import HomeView, AdministrationView
@@ -34,7 +34,7 @@ urlpatterns = [
     path('admin/', edc_appointment_admin.urls),
     path('admin/', flourish_maternal_admin.urls),
     path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),
-    path('admin/', flourish_infant_admin.urls),
+    path('admin/', flourish_child_admin.urls),
     path('administration/', AdministrationView.as_view(),
          name='administration_url'),
     path('admin/flourish_maternal/', RedirectView.as_view(url='admin/flourish_maternal/'),

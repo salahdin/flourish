@@ -26,6 +26,7 @@ class Command(BaseCommand):
                 options[field_name] = data_item.get(field_name)
 
             # Update identifiers
+            options.update(study_child_identifier=data_item.get('bid'))
 
             # Convert date to date objects
             try:
@@ -203,6 +204,7 @@ class Command(BaseCommand):
                 options.update(headcirc_0=None)
 
             if options.get('height_6mo') and not options.get('height_6mo') == '.':
+
                 height_6mo = Decimal(options.get('height_6mo'))
                 options.update(height_6mo=height_6mo)
             else:
@@ -243,167 +245,6 @@ class Command(BaseCommand):
                 options.update(weight_24mo=weight_24mo)
             else:
                 options.update(weight_24mo=None)
-
-            try:
-                infant_sex = parser.parse(options.get('infant_sex'))
-            except parser.ParserError:
-                options.update(infant_sex=None)
-            else:
-                options.update(infant_sex=infant_sex)
-
-            try:
-                infant_azt_birth = parser.parse(options.get('infant_azt_birth'))
-            except parser.ParserError:
-                options.update(infant_azt_birth=None)
-            else:
-                options.update(infant_azt_birth=infant_azt_birth)
-
-            try:
-                infant_sdnvp_birth = parser.parse(options.get('infant_sdnvp_birth'))
-            except parser.ParserError:
-                options.update(infant_sdnvp_birth=None)
-            else:
-                options.update(infant_sdnvp_birth=infant_sdnvp_birth)
-
-            try:
-                infant_hiv_exposed = parser.parse(options.get('infant_hiv_exposed'))
-            except parser.ParserError:
-                options.update(infant_hiv_exposed=None)
-            else:
-                options.update(infant_hiv_exposed=infant_hiv_exposed)
-
-            try:
-                infant_hiv_status = parser.parse(options.get('infant_hiv_status'))
-            except parser.ParserError:
-                options.update(infant_hiv_status=None)
-            else:
-                options.update(infant_hiv_status=infant_hiv_status)
-
-            try:
-                infant_breastfed = parser.parse(options.get('infant_breastfed'))
-            except parser.ParserError:
-                options.update(infant_breastfed=None)
-            else:
-                options.update(infant_breastfed=infant_breastfed)
-
-            try:
-                weaned = parser.parse(options.get('weaned'))
-            except parser.ParserError:
-                options.update(weaned=None)
-            else:
-                options.update(weaned=weaned)
-
-            try:
-                weancat = parser.parse(options.get('weancat'))
-            except parser.ParserError:
-                options.update(weancat=None)
-            else:
-                options.update(weancat=weancat)
-
-            try:
-                birthwtcat = parser.parse(options.get('birthwtcat'))
-            except parser.ParserError:
-                options.update(birthwtcat=None)
-            else:
-                options.update(birthwtcat=birthwtcat)
-
-            try:
-                low_birthweight = parser.parse(options.get('low_birthweight'))
-            except parser.ParserError:
-                options.update(low_birthweight=None)
-            else:
-                options.update(low_birthweight=low_birthweight)
-
-            try:
-                infant_premature = parser.parse(options.get('infant_premature'))
-            except parser.ParserError:
-                options.update(infant_premature=None)
-            else:
-                options.update(infant_premature=infant_premature)
-
-            try:
-                infant_vitalstatus_final = parser.parse(options.get('infant_vitalstatus_final'))
-            except parser.ParserError:
-                options.update(infant_vitalstatus_final=None)
-            else:
-                options.update(infant_vitalstatus_final=infant_vitalstatus_final)
-
-            try:
-                deathcause = parser.parse(options.get('deathcause'))
-            except parser.ParserError:
-                options.update(deathcause=None)
-            else:
-                options.update(deathcause=deathcause)
-
-            try:
-                infantvacc_bcg = parser.parse(options.get('infantvacc_bcg'))
-            except parser.ParserError:
-                options.update(infantvacc_bcg=None)
-            else:
-                options.update(infantvacc_bcg=infantvacc_bcg)
-
-            try:
-                infantvacc_dtap = parser.parse(options.get('infantvacc_dtap'))
-            except parser.ParserError:
-                options.update(infantvacc_dtap=None)
-            else:
-                options.update(infantvacc_dtap=infantvacc_dtap)
-
-            try:
-                infantvacc_hbv = parser.parse(options.get('infantvacc_hbv'))
-            except parser.ParserError:
-                options.update(infantvacc_hbv=None)
-            else:
-                options.update(infantvacc_hbv=infantvacc_hbv)
-
-            try:
-                infantvacc_hiv = parser.parse(options.get('infantvacc_hiv'))
-            except parser.ParserError:
-                options.update(infantvacc_hiv=None)
-            else:
-                options.update(infantvacc_hiv=infantvacc_hiv)
-
-            try:
-                infantvacc_measles = parser.parse(options.get('infantvacc_measles'))
-            except parser.ParserError:
-                options.update(infantvacc_measles=None)
-            else:
-                options.update(infantvacc_measles=infantvacc_measles)
-
-            try:
-                infantvacc_mmr = parser.parse(options.get('infantvacc_mmr'))
-            except parser.ParserError:
-                options.update(infantvacc_mmr=None)
-            else:
-                options.update(infantvacc_mmr=infantvacc_mmr)
-
-            try:
-                infantvacc_pneum = parser.parse(options.get('infantvacc_pneum'))
-            except parser.ParserError:
-                options.update(infantvacc_pneum=None)
-            else:
-                options.update(infantvacc_pneum=infantvacc_pneum)
-
-            try:
-                infantvacc_polio = parser.parse(options.get('infantvacc_polio'))
-            except parser.ParserError:
-                options.update(infantvacc_polio=None)
-            else:
-                options.update(infantvacc_polio=infantvacc_polio)
-
-            try:
-                infantvacc_rota = parser.parse(options.get('infantvacc_rota'))
-            except parser.ParserError:
-                options.update(infantvacc_rota=None)
-            else:
-                options.update(infantvacc_rota=infantvacc_rota)
-
-            try:
-                infant_offstudy_reason = parser.parse(options.get('infant_offstudy_reason'))
-            except parser.ParserError:
-                options.update(infant_offstudy_reason=None)
-            else:
-                options.update(infant_offstudy_reason=infant_offstudy_reason)
 
             try:
                 ChildDataset.objects.get()
@@ -449,7 +290,8 @@ class Command(BaseCommand):
             'id',
             'site',
             'subject_identifier',
-            'screening_identifier', ]
+            'subject_identifier',
+            'study_maternal_identifier', ]
         fields = []
         for field in ChildDataset._meta.get_fields():
             if not field.name in exclude_fields:

@@ -11,6 +11,7 @@ from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_timepoint.timepoint import Timepoint
 from edc_timepoint.timepoint_collection import TimepointCollection
+from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 
 
 class AppConfig(DjangoAppConfig):
@@ -60,3 +61,9 @@ class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
                 status_field='appt_status',
                 closed_status=COMPLETE_APPT),
         ])
+
+
+class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
+    visit_models = {
+        'flourish_maternal': (
+            'maternal_visit', 'flourish_maternal.maternalvisit'), }

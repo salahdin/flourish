@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     'flourish.apps.EdcBaseAppConfig',
     'flourish.apps.EdcDataManagerAppConfig',
     'flourish.apps.EdcProtocolAppConfig',
+    'flourish.apps.EdcVisitTrackingAppConfig',
     'flourish.apps.EdcTimepointAppConfig',
     'flourish.apps.AppConfig',
 ]

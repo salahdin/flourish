@@ -133,7 +133,7 @@ class Command(BaseCommand):
                 created += 1
             else:
                 already_exists += 1
-        self.stdout.write(self.style.SUCCESS(f'A total of {created} have been creeated'))
+        self.stdout.write(self.style.SUCCESS(f'A total of {created} have been created'))
         self.stdout.write(self.style.WARNING(f'Total items {already_exists} already existed'))
 
     def data(self, file_path=None):

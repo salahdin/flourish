@@ -22,6 +22,7 @@ from edc_appointment.admin_site import edc_appointment_admin
 from flourish_maternal.admin_site import flourish_maternal_admin
 from edc_visit_schedule.admin_site import edc_visit_schedule_admin
 from flourish_child.admin_site import flourish_child_admin
+from flourish_follow.admin_site import flourish_follow_admin
 
 
 from .views import HomeView, AdministrationView
@@ -33,6 +34,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('admin/', edc_appointment_admin.urls),
     path('admin/', flourish_maternal_admin.urls),
+    path('admin/', flourish_follow_admin.urls),
     path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),
     path('admin/', flourish_child_admin.urls),
     path('administration/', AdministrationView.as_view(),
@@ -40,7 +42,8 @@ urlpatterns = [
     path('admin/flourish_maternal/', RedirectView.as_view(url='admin/flourish_maternal/'),
          name='maternal_subject_models_url'),
     path('flourish_maternal/', include('flourish_maternal.urls')),
-     path('flourish_child/', include('flourish_child.urls')),
+    path('flourish_child/', include('flourish_child.urls')),
+    path('flourish_follow/', include('flourish_follow.urls')),
     path('maternal_subject/', include('flourish_dashboard.urls')),
     path('edc_base/', include('edc_base.urls')),
     path('edc_consent/', include('edc_consent.urls')),

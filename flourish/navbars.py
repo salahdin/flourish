@@ -25,5 +25,12 @@ flourish.append_item(
         fa_icon='far fa-user-circle',
         url_name=settings.DASHBOARD_URL_NAMES.get('subject_listboard_url')))
 
+flourish.append_item(
+    NavbarItem(
+        name='worklist',
+        title='Worklist',
+        label='Worklist',
+        fa_icon='fa-user-plus',
+        url_name=settings.DASHBOARD_URL_NAMES.get('flourish_follow_listboard_url')))
 
 site_navbars.register(flourish)

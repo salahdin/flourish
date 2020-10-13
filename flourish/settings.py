@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django_crypto_fields.apps.AppConfig',
     'django_q',
     'django_extensions',
+    'crispy_forms',
     'edc_action_item.apps.AppConfig',
     'edc_consent.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
@@ -66,6 +67,7 @@ INSTALLED_APPS = [
     'flourish_dashboard.apps.AppConfig',
     'flourish_maternal.apps.AppConfig',
     'flourish_child.apps.AppConfig',
+    'flourish_follow.apps.AppConfig',
     'flourish.apps.EdcAppointmentAppConfig',
     'flourish.apps.EdcBaseAppConfig',
     'flourish.apps.EdcDataManagerAppConfig',
@@ -158,6 +160,7 @@ DASHBOARD_URL_NAMES = {
     'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
     'maternal_screening_listboard_url': 'flourish_dashboard:maternal_screening_listboard_url',
     'maternal_dataset_listboard_url': 'flourish_dashboard:maternal_dataset_listboard_url',
+    'flourish_follow_listboard_url': 'flourish_follow:flourish_follow_listboard_url',
 
 }
 
@@ -167,6 +170,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'subject_listboard_template': 'flourish_dashboard/maternal_subject/listboard.html',
     'maternal_screening_listboard_template': 'flourish_dashboard/screening/maternal_listboard.html',
     'maternal_dataset_listboard_template': 'flourish_dashboard/maternal_dataset/maternal_listboard.html',
+    'flourish_follow_listboard_template': 'flourish_follow/follow_listboard.html',
     }
 
 # Static files (CSS, JavaScript, Images)

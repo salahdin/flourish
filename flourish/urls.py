@@ -21,6 +21,8 @@ from django.views.generic.base import RedirectView
 from edc_appointment.admin_site import edc_appointment_admin
 from flourish_maternal.admin_site import flourish_maternal_admin
 from edc_visit_schedule.admin_site import edc_visit_schedule_admin
+from edc_call_manager.admin_site import edc_call_manager_admin
+
 from flourish_child.admin_site import flourish_child_admin
 from flourish_follow.admin_site import flourish_follow_admin
 
@@ -36,6 +38,7 @@ urlpatterns = [
     path('admin/', flourish_maternal_admin.urls),
     path('admin/', flourish_follow_admin.urls),
     path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),
+    path('admin/edc_call_manager/', edc_call_manager_admin.urls),
     path('admin/', flourish_child_admin.urls),
     path('administration/', AdministrationView.as_view(),
          name='administration_url'),
@@ -48,6 +51,7 @@ urlpatterns = [
     path('edc_base/', include('edc_base.urls')),
     path('edc_consent/', include('edc_consent.urls')),
     path('edc_data_manager/', include('edc_data_manager.urls')),
+    path('edc_call_manager/', include('edc_call_manager.urls')),
     path('edc_device/', include('edc_device.urls')),
     path('edc_protocol/', include('edc_protocol.urls')),
     path('edc_subject_dashboard/', include('edc_subject_dashboard.urls')),

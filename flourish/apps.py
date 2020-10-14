@@ -66,4 +66,6 @@ class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
 class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
     visit_models = {
         'flourish_maternal': (
-            'maternal_visit', 'flourish_maternal.maternalvisit'), }
+            'maternal_visit', 'flourish_maternal.maternalvisit'),
+        'flourish_child': (
+            'child_visit', 'flourish_child.childvisit'), }

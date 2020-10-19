@@ -46,8 +46,6 @@ urlpatterns = [
          name='maternal_subject_models_url'),
     path('flourish_child/', include('flourish_child.urls')),
     path('flourish_follow/', include('flourish_follow.urls')),
-    path('flourish_dashboard/', include('flourish_dashboard.urls')),
-    path('maternal_subject/', include('flourish_dashboard.urls')),
     path('edc_base/', include('edc_base.urls')),
     path('edc_consent/', include('edc_consent.urls')),
     path('edc_data_manager/', include('edc_data_manager.urls')),

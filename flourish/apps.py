@@ -37,9 +37,9 @@ class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
 
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
-    protocol = 'BHP000'
+    protocol = 'BHP035'
     protocol_name = 'Flourish'
-    protocol_number = '000'
+    protocol_number = '035'
     protocol_title = ''
     study_open_datetime = datetime(
         2020, 9, 16, 0, 0, 0, tzinfo=gettz('UTC'))

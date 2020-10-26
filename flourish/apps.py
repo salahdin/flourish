@@ -7,11 +7,13 @@ from edc_appointment.appointment_config import AppointmentConfig
 from edc_appointment.constants import COMPLETE_APPT
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
 from edc_data_manager.apps import AppConfig as BaseEdcDataManagerAppConfig
+from edc_locator.apps import AppConfig as BaseEdcLocatorAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_timepoint.timepoint import Timepoint
 from edc_timepoint.timepoint_collection import TimepointCollection
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
+from flourish_dashboard.patterns import subject_identifier
 
 
 class AppConfig(DjangoAppConfig):
@@ -32,7 +34,7 @@ class EdcBaseAppConfig(BaseEdcBaseAppConfig):
 
 
 class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
-    identifier_pattern = None
+    identifier_pattern = subject_identifier
     extra_assignee_choices = {}
 
 
@@ -61,6 +63,11 @@ class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
                 status_field='appt_status',
                 closed_status=COMPLETE_APPT),
         ])
+
+
+class EdcLocatorAppConfig(BaseEdcLocatorAppConfig):
+    name = 'edc_locator'
+    reference_model = 'flourish_maternal.maternallocator'
 
 
 class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):

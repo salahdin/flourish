@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'django_crypto_fields.apps.AppConfig',
     'django_q',
     'django_extensions',
-    'crispy_forms',
     'edc_action_item.apps.AppConfig',
     'edc_consent.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
@@ -61,6 +60,7 @@ INSTALLED_APPS = [
     'edc_identifier.apps.AppConfig',
     'edc_lab.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
+    'edc_prn.apps.AppConfig',
     'edc_registration.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
     'edc_visit_schedule.apps.AppConfig',
@@ -68,10 +68,10 @@ INSTALLED_APPS = [
     'flourish_dashboard.apps.AppConfig',
     'flourish_maternal.apps.AppConfig',
     'flourish_child.apps.AppConfig',
-    'flourish_follow.apps.AppConfig',
     'flourish.apps.EdcAppointmentAppConfig',
     'flourish.apps.EdcBaseAppConfig',
     'flourish.apps.EdcDataManagerAppConfig',
+    'flourish.apps.EdcLocatorAppConfig',
     'flourish.apps.EdcProtocolAppConfig',
     'flourish.apps.EdcVisitTrackingAppConfig',
     'flourish.apps.EdcTimepointAppConfig',
@@ -117,12 +117,19 @@ WSGI_APPLICATION = 'flourish.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join(ETC_DIR, APP_NAME, 'mysql.conf'),
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'OPTIONS': {
+#             'read_default_file': os.path.join(ETC_DIR, APP_NAME, 'mysql.conf'),
+#         }
+#     }
+# }
 
 
 # Password validation
@@ -163,13 +170,14 @@ DASHBOARD_URL_NAMES = {
     'maternal_screening_listboard_url': 'flourish_dashboard:maternal_screening_listboard_url',
     'maternal_dataset_listboard_url': 'flourish_dashboard:maternal_dataset_listboard_url',
     'flourish_follow_listboard_url': 'flourish_follow:flourish_follow_listboard_url',
-
+    'subject_dashboard_url': 'flourish_dashboard:subject_dashboard_url'
 }
 
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'flourish/base.html',
     'dashboard_base_template': 'flourish/base.html',
     'subject_listboard_template': 'flourish_dashboard/maternal_subject/listboard.html',
+    'subject_dashboard_template': 'flourish_dashboard/maternal_subject/dashboard.html',
     'maternal_screening_listboard_template': 'flourish_dashboard/screening/maternal_listboard.html',
     'maternal_dataset_listboard_template': 'flourish_dashboard/maternal_dataset/maternal_listboard.html',
     'flourish_follow_listboard_template': 'flourish_follow/follow_listboard.html',
@@ -181,3 +189,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'flourish', 'static')
+
+PARENT_REFERENCE_MODEL1 = ''
+PARENT_REFERENCE_MODEL2 = ''

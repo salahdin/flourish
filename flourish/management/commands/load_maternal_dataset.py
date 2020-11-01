@@ -4,7 +4,7 @@ from dateutil import parser
 
 from django.core.management.base import BaseCommand
 
-from flourish_maternal.models import MaternalDataset
+from flourish_caregiver.models import MaternalDataset
 
 
 class Command(BaseCommand):

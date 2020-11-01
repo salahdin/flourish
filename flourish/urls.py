@@ -21,7 +21,7 @@ from django.views.generic.base import RedirectView
 from edc_action_item.admin_site import edc_action_item_admin
 from edc_appointment.admin_site import edc_appointment_admin
 from edc_locator.admin_site import edc_locator_admin
-from flourish_maternal.admin_site import flourish_maternal_admin
+from flourish_caregiver.admin_site import flourish_caregiver_admin
 from edc_visit_schedule.admin_site import edc_visit_schedule_admin
 from edc_call_manager.admin_site import edc_call_manager_admin
 from edc_data_manager.admin_site import edc_data_manager_admin
@@ -41,16 +41,16 @@ urlpatterns = [
     path('admin/', edc_data_manager_admin.urls),
     path('admin/', edc_locator_admin.urls),
     path('admin/', edc_action_item_admin.urls),
-    path('admin/', flourish_maternal_admin.urls),
+    path('admin/', flourish_caregiver_admin.urls),
     path('admin/', flourish_follow_admin.urls),
     path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),
     path('admin/edc_call_manager/', edc_call_manager_admin.urls),
     path('admin/', flourish_child_admin.urls),
     path('administration/', AdministrationView.as_view(),
          name='administration_url'),
-    path('admin/flourish_maternal/', RedirectView.as_view(url='admin/flourish_maternal/'),
+    path('admin/flourish_caregiver/', RedirectView.as_view(url='admin/flourish_caregiver/'),
          name='maternal_subject_models_url'),
-    path('flourish_maternal/', include('flourish_maternal.urls')),
+    path('flourish_caregiver/', include('flourish_caregiver.urls')),
     path('flourish_child/', include('flourish_child.urls')),
     path('flourish_follow/', include('flourish_follow.urls')),
     path('edc_action_item/', include('edc_action_item.urls')),

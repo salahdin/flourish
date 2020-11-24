@@ -33,6 +33,8 @@ AUTO_CREATE_KEYS = False
 
 LOGIN_REDIRECT_URL = 'home_url'
 
+INDEX_PAGE = 'flourish.bhp.org.bw'
+
 ETC_DIR = '/etc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -78,6 +80,7 @@ INSTALLED_APPS = [
     'flourish.apps.EdcProtocolAppConfig',
     'flourish.apps.EdcVisitTrackingAppConfig',
     'flourish.apps.EdcTimepointAppConfig',
+    'pre_flourish.apps.AppConfig',
     'flourish.apps.AppConfig',
 ]
 
@@ -172,7 +175,12 @@ USE_L10N = False
 
 USE_TZ = True
 
+
 DASHBOARD_URL_NAMES = {
+    'pre_flourish_screening_listboard_url': 'pre_flourish:pre_flourish_screening_listboard_url',
+    'pre_flourish_consent_listboard_url': 'pre_flourish:pre_flourish_consent_listboard_url',
+    'pre_flourish_child_listboard_url': 'pre_flourish:pre_flourish_child_child_listboard_url',
+    'pre_flourish_subject_dashboard_url': 'pre_flourish:pre_flourish_child_subject_dashboard_url',
     'subject_listboard_url': 'flourish_dashboard:subject_listboard_url',
     'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
     'maternal_screening_listboard_url': 'flourish_dashboard:maternal_screening_listboard_url',
@@ -189,6 +197,10 @@ DASHBOARD_BASE_TEMPLATES = {
     'maternal_screening_listboard_template': 'flourish_dashboard/screening/maternal_listboard.html',
     'maternal_dataset_listboard_template': 'flourish_dashboard/maternal_dataset/maternal_listboard.html',
     'flourish_follow_listboard_template': 'flourish_follow/follow_listboard.html',
+    'pre_flourish_child_listboard_template': 'pre_flourish/child/child_listboard.html',
+    'pre_flourish_subject_dashboard_template': 'pre_flourish/caregiver/dashboard.html',
+    'pre_flourish_screening_listboard_template': 'pre_flourish/caregiver/listboard.html',
+    'pre_flourish_subject_listboard_template': 'pre_flourish/caregiver/subject_listboard.html',
     }
 
 # Static files (CSS, JavaScript, Images)

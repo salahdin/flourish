@@ -175,6 +175,8 @@ USE_L10N = False
 
 USE_TZ = True
 
+CELLPHONE_REGEX = '^[7]{1}[12345678]{1}[0-9]{6}$'
+TELEPHONE_REGEX = '^[2-8]{1}[0-9]{6}$'
 
 DASHBOARD_URL_NAMES = {
     'pre_flourish_screening_listboard_url': 'pre_flourish:pre_flourish_screening_listboard_url',

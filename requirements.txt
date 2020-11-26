@@ -40,4 +40,5 @@ git+https://github.com/flourishbhp/flourish-visit-schedule.git@develop#egg=flour
 git+https://github.com/flourishbhp/flourish-follow.git@develop#egg=flourish_follow
 git+https://github.com/flourishbhp/flourish-form-validations.git@develop#egg=flourish_form_validations
 git+https://github.com/flourishbhp/flourish-prn.git@develop#egg=flourish_prn
+git+https://github.com/flourishbhp/pre-flourish.git@develop#egg=pre_flourish
 django_q

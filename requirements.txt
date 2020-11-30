@@ -33,8 +33,12 @@ git+https://github.com/botswana-harvard/edc-subject-dashboard.git@develop#egg=ed
 git+https://github.com/botswana-harvard/edc-timepoint.git@develop#egg=edc_timepoint
 git+https://github.com/botswana-harvard/edc-visit-schedule.git@develop#egg=edc_visit_schedule
 git+https://github.com/botswana-harvard/edc-visit-tracking.git@develop#egg=edc_visit_tracking
-git+https://github.com/flourishbhp/flourish-infant.git@develop#egg=flourish_infant
+git+https://github.com/flourishbhp/flourish-child.git@develop#egg=flourish_child
+git+https://github.com/flourishbhp/flourish-maternal.git@develop#egg=flourish_maternal
 git+https://github.com/flourishbhp/flourish-dashboard.git@develop#egg=flourish_dashboard
+git+https://github.com/flourishbhp/flourish-visit-schedule.git@develop#egg=flourish_visit_schedule
 git+https://github.com/flourishbhp/flourish-follow.git@develop#egg=flourish_follow
+git+https://github.com/flourishbhp/flourish-form-validations.git@develop#egg=flourish_form_validations
 git+https://github.com/flourishbhp/flourish-prn.git@develop#egg=flourish_prn
+git+https://github.com/flourishbhp/pre-flourish.git@develop#egg=pre_flourish
 django_q

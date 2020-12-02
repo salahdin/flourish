@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_crypto_fields.apps.AppConfig',
-    'crispy_forms',
     'django_q',
     'django_extensions',
     'edc_action_item.apps.AppConfig',

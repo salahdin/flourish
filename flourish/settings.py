@@ -35,12 +35,13 @@ LOGIN_REDIRECT_URL = 'home_url'
 
 INDEX_PAGE = 'flourish.bhp.org.bw'
 
-ETC_DIR = '/etc'
+ETC_DIR = '/etc/flourish'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'flourish.bhp.org.bw']
 
 # Application definition
 
@@ -121,20 +122,11 @@ WSGI_APPLICATION = 'flourish.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': os.path.join(ETC_DIR, APP_NAME, 'mysql.conf'),
+            'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
         }
     }
 }

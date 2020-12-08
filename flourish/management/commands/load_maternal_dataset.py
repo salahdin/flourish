@@ -83,13 +83,6 @@ class Command(BaseCommand):
                 options.update(parity=None)
             else:
                 options.update(parity=parity)
-            
-            try:
-                toilet = int(options.get('toilet'))
-            except ValueError:
-                options.update(toilet=None)
-            else:
-                options.update(toilet=toilet)
         
             try:
                 live_inhouse_number = int(options.get('live_inhouse_number'))
@@ -176,4 +169,3 @@ class Command(BaseCommand):
             if not field.name in exclude_fields:
                 fields.append(field.name)
         return fields
-            

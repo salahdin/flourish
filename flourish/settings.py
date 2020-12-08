@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import sys
 import os
 from pathlib import Path
 
@@ -39,7 +40,7 @@ ETC_DIR = '/etc/flourish'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
+# KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'flourish.bhp.org.bw']
 
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
     'django_crypto_fields.apps.AppConfig',
     'django_q',
     'django_extensions',
+    'crispy_forms',
     'edc_action_item.apps.AppConfig',
     'edc_consent.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',

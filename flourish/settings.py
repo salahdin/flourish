@@ -132,6 +132,7 @@ DATABASES = {
     }
 }
 
+
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -174,7 +175,7 @@ TELEPHONE_REGEX = '^[2-8]{1}[0-9]{6}$'
 DASHBOARD_URL_NAMES = {
     'pre_flourish_screening_listboard_url': 'pre_flourish:pre_flourish_screening_listboard_url',
     'pre_flourish_consent_listboard_url': 'pre_flourish:pre_flourish_consent_listboard_url',
-    'pre_flourish_child_listboard_url': 'pre_flourish:pre_flourish_child_child_listboard_url',
+    'pre_flourish_child_listboard_url': 'pre_flourish:pre_flourish_child_listboard_url',
     'pre_flourish_subject_dashboard_url': 'pre_flourish:pre_flourish_child_subject_dashboard_url',
     'subject_listboard_url': 'flourish_dashboard:subject_listboard_url',
     'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',

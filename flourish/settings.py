@@ -64,12 +64,15 @@ INSTALLED_APPS = [
     'edc_device.apps.AppConfig',
     'edc_identifier.apps.AppConfig',
     'edc_lab.apps.AppConfig',
+    'edc_model_admin.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
     'edc_prn.apps.AppConfig',
     'edc_registration.apps.AppConfig',
+    'edc_reference.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
     'edc_visit_schedule.apps.AppConfig',
     'edc_call_manager.apps.AppConfig',
+    'edc_metadata_rules.apps.AppConfig',
     'flourish_dashboard.apps.AppConfig',
     'flourish_prn.apps.AppConfig',
     'flourish_caregiver.apps.AppConfig',
@@ -78,7 +81,9 @@ INSTALLED_APPS = [
     'flourish.apps.EdcAppointmentAppConfig',
     'flourish.apps.EdcBaseAppConfig',
     'flourish.apps.EdcDataManagerAppConfig',
+    'flourish.apps.EdcFacilityAppConfig',
     'flourish.apps.EdcLocatorAppConfig',
+    'flourish.apps.EdcMetadataAppConfig',
     'flourish.apps.EdcProtocolAppConfig',
     'flourish.apps.EdcVisitTrackingAppConfig',
     'flourish.apps.EdcTimepointAppConfig',
@@ -132,7 +137,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -176,7 +180,7 @@ DASHBOARD_URL_NAMES = {
     'pre_flourish_screening_listboard_url': 'pre_flourish:pre_flourish_screening_listboard_url',
     'pre_flourish_consent_listboard_url': 'pre_flourish:pre_flourish_consent_listboard_url',
     'pre_flourish_child_listboard_url': 'pre_flourish:pre_flourish_child_listboard_url',
-    'pre_flourish_subject_dashboard_url': 'pre_flourish:pre_flourish_child_subject_dashboard_url',
+    'pre_flourish_subject_dashboard_url': 'pre_flourish:pre_flourish_subject_dashboard_url',
     'subject_listboard_url': 'flourish_dashboard:subject_listboard_url',
     'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
     'maternal_screening_listboard_url': 'flourish_dashboard:maternal_screening_listboard_url',
@@ -205,6 +209,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'flourish', 'static')
+
+HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
+COUNTRY = 'botswana'
 
 PARENT_REFERENCE_MODEL1 = ''
 PARENT_REFERENCE_MODEL2 = ''

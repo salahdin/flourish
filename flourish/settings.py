@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'django_q',
     'django_extensions',
     'crispy_forms',
+    'multiselectfield',
     'edc_action_item.apps.AppConfig',
     'edc_consent.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',

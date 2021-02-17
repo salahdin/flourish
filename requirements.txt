@@ -46,3 +46,4 @@ git+https://github.com/flourishbhp/flourish-reference@develop#egg=flourish_refer
 git+https://github.com/flourishbhp/flourish-metadata-rules@develop#egg=flourish_metadata_rules
 django-q
 pandas
+jupyter

@@ -22,7 +22,7 @@ class Command(BaseCommand):
             options = {}
             for field_name in self.all_model_fields:
                 options[field_name] = data_item.get(field_name)
-            
+
             # Update identifiers
             options.update(study_child_identifier=data_item.get('bid'))
             options.update(study_maternal_identifier=data_item.get('m_bid'))
@@ -110,21 +110,58 @@ class Command(BaseCommand):
             except ValueError:
                 options.update(mom_baseline_vl=None)
             else:
-                options.update(mom_baseline_vl=mom_baseline_vl) 
-            
-            # Convert decimal values to decimal objects
+                options.update(mom_baseline_vl=mom_baseline_vl)
+
+            try:
+                twin_triplet = int(options.get('twin_triplet'))
+            except ValueError:
+                options.update(twin_triplet=None)
+            else:
+                options.update(twin_triplet=twin_triplet)
+
+            try:
+                preg_dtg = int(options.get('preg_dtg'))
+            except ValueError:
+                options.update(preg_dtg=None)
+            else:
+                options.update(preg_dtg=preg_dtg)
+
+            try:
+                preg_pi = int(options.get('preg_pi'))
+            except ValueError:
+                options.update(preg_pi=None)
+            else:
+                options.update(preg_pi=preg_pi)
+
+            try:
+                preg_efv = int(options.get('preg_efv'))
+            except ValueError:
+                options.update(preg_efv=None)
+            else:
+                options.update(preg_efv=preg_efv)
+
+                    # Convert decimal values to decimal objects
             if options.get('mom_baseline_hgb') and not options.get('mom_baseline_hgb') == '.':
                 mom_baseline_hgb = Decimal(options.get('mom_baseline_hgb'))
                 options.update(mom_baseline_hgb=mom_baseline_hgb)
             else:
                 options.update(mom_baseline_hgb=None)
+
             try:
                 MaternalDataset.objects.get(study_maternal_identifier=data_item.get('m_bid'))
+
+                data_set = MaternalDataset.objects.get(study_maternal_identifier=data_item.get('m_bid'))
+
+                for (key, value) in options.items():
+                    setattr(data_set, key, value)
+                data_set.save()
+
             except MaternalDataset.DoesNotExist:
                 MaternalDataset.objects.create(**options)
                 created += 1
             else:
                 already_exists += 1
+
         self.stdout.write(self.style.SUCCESS(f'A total of {created} have been created'))
         self.stdout.write(self.style.WARNING(f'Total items {already_exists} already existed'))
 

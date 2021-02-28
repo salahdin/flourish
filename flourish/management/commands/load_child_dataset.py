@@ -1,6 +1,7 @@
 from pprint import pprint
 from decimal import Decimal
 from dateutil import parser
+import decimal
 
 from django.core.management.base import BaseCommand
 
@@ -91,6 +92,13 @@ class Command(BaseCommand):
                 options.update(infant_lastcontactdt=None)
             else:
                 options.update(infant_lastcontactdt=infant_lastcontactdt)
+
+            # try:
+            #     today = parser.parse(options.get('today')).date()
+            # except parser.ParserError:
+            #     options.update(today=None)
+            # else:
+            #     options.update(today=today)
 
             # Convert int values to int objects
             try:
@@ -184,6 +192,20 @@ class Command(BaseCommand):
             else:
                 options.update(infant_onstudy_days=infant_onstudy_days)
 
+            try:
+                age_gt17_5 = int(options.get('age_gt17_5'))
+            except ValueError:
+                options.update(age_gt17_5=None)
+            else:
+                options.update(age_gt17_5=age_gt17_5)
+
+            try:
+                infant_offstudy_complete = int(options.get('infant_offstudy_complete'))
+            except ValueError:
+                options.update(infant_offstudy_complete=None)
+            else:
+                options.update(infant_offstudy_complete=infant_offstudy_complete)
+
             # Convert decimal values to decimal objects
             if options.get('birthweight') and not options.get('birthweight') == '.':
                 birthweight = Decimal(options.get('birthweight'))
@@ -246,8 +268,33 @@ class Command(BaseCommand):
             else:
                 options.update(weight_24mo=None)
 
+            # if options.get('curr_age') and not options.get('curr_age') == '.':
+            #     curr_age = Decimal(options.get('curr_age'))
+            #     print(options.get('curr_age'))
+            #     options.update(curr_age=curr_age)
+            # else:
+            #     options.update(curr_age=None)
+
+            try:
+                if options.get('curr_age') and not options.get(
+                        'curr_age') == '.':
+                    curr_age = Decimal(options.get('curr_age'))
+                    options.update(curr_age=curr_age)
+                else:
+                    options.update(curr_age=None)
+                    raise decimal.InvalidOperation
+            except decimal.InvalidOperation as e:
+                print(e)
+
             try:
                 ChildDataset.objects.get(study_child_identifier=data_item.get('bid'))
+
+                data_set = ChildDataset.objects.get(study_child_identifier=data_item.get('bid'))
+
+                for (key, value) in options.items():
+                    setattr(data_set, key, value)
+                data_set.save()
+
             except ChildDataset.DoesNotExist:
                 ChildDataset.objects.create(**options)
                 created += 1

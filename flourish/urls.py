@@ -30,6 +30,7 @@ from edc_data_manager.admin_site import edc_data_manager_admin
 from flourish_child.admin_site import flourish_child_admin
 from pre_flourish.admin_site import pre_flourish_admin
 from flourish_follow.admin_site import flourish_follow_admin
+from flourish_prn.admin_site import flourish_prn_admin
 
 
 from .views import HomeView, AdministrationView
@@ -46,6 +47,7 @@ urlpatterns = [
     path('admin/', edc_reference_admin.urls),
     path('admin/', flourish_caregiver_admin.urls),
     path('admin/', flourish_follow_admin.urls),
+    path('admin/', flourish_prn_admin.urls),
     path('admin/', pre_flourish_admin.urls),
     path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),
     path('admin/edc_call_manager/', edc_call_manager_admin.urls),
@@ -56,6 +58,7 @@ urlpatterns = [
          name='maternal_subject_models_url'),
     path('flourish_caregiver/', include('flourish_caregiver.urls')),
     path('flourish_child/', include('flourish_child.urls')),
+    path('flourish_prn/', include('flourish_prn.urls')),
     path('pre_flourish/', include('pre_flourish.urls')),
     path('pre_flourish/subject/', include('pre_flourish.dashboard_urls')),
     path('flourish_follow/', include('flourish_follow.urls')),

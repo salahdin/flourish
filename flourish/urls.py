@@ -20,6 +20,7 @@ from django.urls import path, include
 from django.views.generic.base import RedirectView
 from edc_action_item.admin_site import edc_action_item_admin
 from edc_appointment.admin_site import edc_appointment_admin
+from edc_lab.admin_site import edc_lab_admin
 from edc_locator.admin_site import edc_locator_admin
 from edc_reference.admin_site import edc_reference_admin
 from flourish_caregiver.admin_site import flourish_caregiver_admin
@@ -41,6 +42,7 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('admin/', edc_appointment_admin.urls),
+    path('admin/', edc_lab_admin.urls),
     path('admin/', edc_data_manager_admin.urls),
     path('admin/', edc_locator_admin.urls),
     path('admin/', edc_action_item_admin.urls),

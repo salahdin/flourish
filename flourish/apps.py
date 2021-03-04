@@ -101,6 +101,8 @@ class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
 
 class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
     reason_field = {
-        'pre_flourish.preflourishcaregivervisit': 'reason',}
+        'pre_flourish.preflourishcaregivervisit': 'reason',
+        'flourish_caregiver.maternalvisit': 'reason',
+        'flourish_child.childvisit': 'reason', }
     create_on_reasons = [SCHEDULED, UNSCHEDULED]
     delete_on_reasons = [LOST_VISIT, MISSED_VISIT]

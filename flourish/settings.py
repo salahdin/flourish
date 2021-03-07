@@ -11,11 +11,16 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+import configparser
+
+from django.core.management.color import color_style
+
 from pathlib import Path
+
+style = color_style()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -35,13 +40,20 @@ LOGIN_REDIRECT_URL = 'home_url'
 
 INDEX_PAGE = 'flourish.bhp.org.bw'
 
-ETC_DIR = '/etc/flourish'
+ETC_DIR = os.path.join('/etc/', APP_NAME)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 # KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'flourish.bhp.org.bw']
+
+CONFIG_FILE = f'{APP_NAME}.ini'
+
+CONFIG_PATH = os.path.join(ETC_DIR, CONFIG_FILE)
+sys.stdout.write(style.SUCCESS(f'  * Reading config from {CONFIG_FILE}\n'))
+config = configparser.ConfigParser()
+config.read(CONFIG_PATH)
 
 # Application definition
 
@@ -79,6 +91,9 @@ INSTALLED_APPS = [
     'flourish_caregiver.apps.AppConfig',
     'flourish_child.apps.AppConfig',
     'flourish_follow.apps.AppConfig',
+    'flourish_metadata_rules.apps.AppConfig',
+    'flourish_reference.apps.AppConfig',
+    'flourish_visit_schedule.apps.AppConfig',
     'flourish.apps.EdcAppointmentAppConfig',
     'flourish.apps.EdcBaseAppConfig',
     'flourish.apps.EdcDataManagerAppConfig',

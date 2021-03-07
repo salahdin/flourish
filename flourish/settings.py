@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-import sys
 import os
 from pathlib import Path
 
@@ -60,6 +59,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'multiselectfield',
     'edc_action_item.apps.AppConfig',
+    'edc_calender.apps.AppConfig',
     'edc_consent.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',

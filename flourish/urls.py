@@ -20,6 +20,7 @@ from django.urls import path, include
 from django.views.generic.base import RedirectView
 from edc_action_item.admin_site import edc_action_item_admin
 from edc_appointment.admin_site import edc_appointment_admin
+from edc_calender.admin_site import edc_calender_admin
 from edc_locator.admin_site import edc_locator_admin
 from edc_reference.admin_site import edc_reference_admin
 from flourish_caregiver.admin_site import flourish_caregiver_admin
@@ -40,6 +41,7 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('admin/', edc_appointment_admin.urls),
+    path('admin/', edc_calender_admin.urls),
     path('admin/', edc_data_manager_admin.urls),
     path('admin/', edc_locator_admin.urls),
     path('admin/', edc_action_item_admin.urls),
@@ -62,6 +64,7 @@ urlpatterns = [
     path('edc_appointment/', include('edc_appointment.urls')),
     path('edc_action_item/', include('edc_action_item.urls')),
     path('edc_base/', include('edc_base.urls')),
+    path('edc_calender/', include('edc_calender.urls')),
     path('edc_consent/', include('edc_consent.urls')),
     path('edc_data_manager/', include('edc_data_manager.urls')),
     path('edc_call_manager/', include('edc_call_manager.urls')),

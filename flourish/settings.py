@@ -194,6 +194,7 @@ CELLPHONE_REGEX = '^[7]{1}[12345678]{1}[0-9]{6}$'
 TELEPHONE_REGEX = '^[2-8]{1}[0-9]{6}$'
 
 DASHBOARD_URL_NAMES = {
+    'child_listboard_url': 'flourish_dashboard:child_listboard_url',
     'pre_flourish_screening_listboard_url': 'pre_flourish:pre_flourish_screening_listboard_url',
     'pre_flourish_consent_listboard_url': 'pre_flourish:pre_flourish_consent_listboard_url',
     'pre_flourish_child_listboard_url': 'pre_flourish:pre_flourish_child_listboard_url',
@@ -209,6 +210,7 @@ DASHBOARD_URL_NAMES = {
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'flourish/base.html',
     'dashboard_base_template': 'flourish/base.html',
+    'child_listboard_template': 'flourish_dashboard/child_subject/listboard.html',
     'subject_listboard_template': 'flourish_dashboard/maternal_subject/listboard.html',
     'subject_dashboard_template': 'flourish_dashboard/maternal_subject/dashboard.html',
     'maternal_screening_listboard_template': 'flourish_dashboard/screening/maternal_listboard.html',

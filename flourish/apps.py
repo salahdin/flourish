@@ -34,6 +34,10 @@ class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
         AppointmentConfig(
             model='edc_appointment.appointment',
             related_visit_model='pre_flourish.preflourishcaregivervisit',
+            appt_type='clinic'),
+        AppointmentConfig(
+            model='edc_appointment.appointment',
+            related_visit_model='flourish_child.childvisit',
             appt_type='clinic')
     ]
 

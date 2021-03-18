@@ -28,6 +28,7 @@ class Command(BaseCommand):
 
             # Update identifiers
             options.update(study_child_identifier=data_item.get('bid'))
+            options.update(study_maternal_identifier=data_item.get('m_bid'))
 
             # Convert date to date objects
             try:
@@ -337,8 +338,7 @@ class Command(BaseCommand):
             'id',
             'site',
             'subject_identifier',
-            'subject_identifier',
-            'study_maternal_identifier', ]
+            'subject_identifier']
         fields = []
         for field in ChildDataset._meta.get_fields():
             if not field.name in exclude_fields:

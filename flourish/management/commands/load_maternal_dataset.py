@@ -24,7 +24,6 @@ class Command(BaseCommand):
                 options[field_name] = data_item.get(field_name)
 
             # Update identifiers
-            options.update(study_child_identifier=data_item.get('bid'))
             options.update(study_maternal_identifier=data_item.get('m_bid'))
             # Convert date to date objects
             try:
@@ -199,7 +198,6 @@ class Command(BaseCommand):
             'site',
             'subject_identifier',
             'screening_identifier',
-            'study_child_identifier',
             'study_maternal_identifier',]
         fields = []
         for field in MaternalDataset._meta.get_fields():

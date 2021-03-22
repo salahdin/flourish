@@ -3,7 +3,7 @@ from django.conf import settings
 
 from django.core.management.base import BaseCommand
 
-from flourish_caregiver.models import CaregiverLocator
+from flourish_caregiver.models import CaregiverLocator, MaternalDataset
 from django.utils.timezone import make_aware
 import pytz
 import csv
@@ -43,19 +43,28 @@ class Command(BaseCommand):
             else:
                 options.update(locator_date=locator_date)
 
+            locator = None
             try:
                 locator = CaregiverLocator.objects.get(
                     study_maternal_identifier=data_item.get('study_maternal_identifier'))
-
+            except CaregiverLocator.DoesNotExist:
+                locator = CaregiverLocator.objects.create(**options)
+                created += 1
+            else:
                 for (key, value) in options.items():
                     setattr(locator, key, value)
                 locator.save()
-
-            except CaregiverLocator.DoesNotExist:
-                CaregiverLocator.objects.create(**options)
-                created += 1
-            else:
                 already_exists += 1
+
+            try:
+                dataset = MaternalDataset.objects.get(
+                    study_maternal_identifier=data_item.get('study_maternal_identifier'))
+            except MaternalDataset.DoesNotExist:
+                pass
+            else:
+                screening_identifier = getattr(dataset, 'screening_identifier')
+                setattr(locator, 'screening_identifier', screening_identifier)
+                locator.save()
 
         self.stdout.write(self.style.SUCCESS(f'A total of {created} have been created'))
         self.stdout.write(self.style.WARNING(f'Total items {already_exists} already existed'))
@@ -89,6 +98,7 @@ class Command(BaseCommand):
             'site',
             'site_id',
             'slug',
+            'screening_identifier',
             'action_identifier',
             'tracking_identifier',
             'related_tracking_identifier',

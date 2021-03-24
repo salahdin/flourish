@@ -196,6 +196,7 @@ TELEPHONE_REGEX = '^[2-8]{1}[0-9]{6}$'
 DASHBOARD_URL_NAMES = {
     'child_dashboard_url': 'flourish_dashboard:child_dashboard_url',
     'child_listboard_url': 'flourish_dashboard:child_listboard_url',
+    'child_screening_listboard_url': 'flourish_dashboard:child_screening_listboard_url',
     'pre_flourish_screening_listboard_url': 'pre_flourish:pre_flourish_screening_listboard_url',
     'pre_flourish_consent_listboard_url': 'pre_flourish:pre_flourish_consent_listboard_url',
     'pre_flourish_child_listboard_url': 'pre_flourish:pre_flourish_child_listboard_url',
@@ -222,6 +223,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'pre_flourish_subject_dashboard_template': 'pre_flourish/caregiver/dashboard.html',
     'pre_flourish_screening_listboard_template': 'pre_flourish/caregiver/listboard.html',
     'pre_flourish_subject_listboard_template': 'pre_flourish/caregiver/subject_listboard.html',
+    'child_screening_listboard_template': 'flourish_dashboard/child_subject/screening_listboard.html',
     }
 
 # Static files (CSS, JavaScript, Images)

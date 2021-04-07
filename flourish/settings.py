@@ -35,8 +35,6 @@ REVIEWER_SITE_ID = 1
 
 APP_NAME = 'flourish'
 
-AUTO_CREATE_KEYS = False
-
 LOGIN_REDIRECT_URL = 'home_url'
 
 INDEX_PAGE = 'flourish.bhp.org.bw'

@@ -36,7 +36,7 @@ class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
             related_visit_model='pre_flourish.preflourishcaregivervisit',
             appt_type='clinic'),
         AppointmentConfig(
-            model='edc_appointment.appointment',
+            model='flourish_child.appointment',
             related_visit_model='flourish_child.childvisit',
             appt_type='clinic')
     ]
@@ -76,6 +76,16 @@ class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
                 datetime_field='appt_datetime',
                 status_field='appt_status',
                 closed_status=COMPLETE_APPT),
+            Timepoint(
+                model='flourish_child.appointment',
+                datetime_field='appt_datetime',
+                status_field='appt_status',
+                closed_status=COMPLETE_APPT),
+            Timepoint(
+                model='flourish_child.historicalappointment',
+                datetime_field='appt_datetime',
+                status_field='appt_status',
+                closed_status=COMPLETE_APPT)
         ])
 
 

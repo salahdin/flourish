@@ -67,7 +67,7 @@ class Command(BaseCommand):
                 except LocatorLog.DoesNotExist:
                     pass
                 else:
-                    LocatorLogEntry.get_or_create(
+                    LocatorLogEntry.objects.get_or_create(
                         locator_log=locator_log, log_status='exist')
 
                 screening_identifier = getattr(dataset, 'screening_identifier')

@@ -36,6 +36,13 @@ class Command(BaseCommand):
             else:
                 options.update(report_datetime=report_datetime)
 
+            try:
+                date_created = parser.parse(options.get('date_created')).date()
+            except parser.ParserError:
+                options.update(date_created=None)
+            else:
+                options.update(date_created=date_created)
+
             locatorlogentry = None
             try:
                 locatorlogentry = LocatorLogEntry.objects.get(

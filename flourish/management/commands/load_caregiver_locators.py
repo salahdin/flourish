@@ -3,7 +3,7 @@ from django.conf import settings
 
 from django.core.management.base import BaseCommand
 
-from flourish_caregiver.models import CaregiverLocator, MaternalDataset
+from flourish_caregiver.models import CaregiverLocator, MaternalDataset, LocatorLog, LocatorLogEntry
 from django.utils.timezone import make_aware
 import pytz
 import csv
@@ -62,6 +62,14 @@ class Command(BaseCommand):
             except MaternalDataset.DoesNotExist:
                 pass
             else:
+                try:
+                    locator_log = LocatorLog.objects.get(maternal_dataset=dataset)
+                except LocatorLog.DoesNotExist:
+                    pass
+                else:
+                    LocatorLogEntry.get_or_create(
+                        locator_log=locator_log, log_status='exist')
+
                 screening_identifier = getattr(dataset, 'screening_identifier')
                 setattr(locator, 'screening_identifier', screening_identifier)
                 locator.save()

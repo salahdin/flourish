@@ -46,6 +46,9 @@ class Command(BaseCommand):
             else:
                 options.update(infant_enrolldate=infant_enrolldate)
 
+            if int(data_item.get('twin_triplet')) == 1:
+                options.update(twin_triplet=True)
+
             try:
                 infant_randdt = parser.parse(options.get('infant_randdt')).date()
             except parser.ParserError:

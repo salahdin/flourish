@@ -43,12 +43,10 @@ class Command(BaseCommand):
             else:
                 options.update(date_created=date_created)
 
-            locatorlogentry = None
-            try:
-                locatorlogentry = LocatorLogEntry.objects.get(
-                    locator_log__maternal_dataset__study_maternal_identifier=data_item.get(
-                        'study_maternal_identifier'))
-            except LocatorLogEntry.DoesNotExist:
+            locatorlogentry = LocatorLogEntry.objects.filter(
+                locator_log__maternal_dataset__study_maternal_identifier=data_item.get(
+                    'study_maternal_identifier'))
+            if not locatorlogentry:
                 try:
                     locatorlog = LocatorLog.objects.get(
                         maternal_dataset__study_maternal_identifier=data_item.get(
@@ -60,9 +58,6 @@ class Command(BaseCommand):
                     locatorlogentry = LocatorLogEntry.objects.create(**options)
                     created += 1
             else:
-                for (key, value) in options.items():
-                    setattr(locatorlogentry, key, value)
-                locatorlogentry.save()
                 already_exists += 1
 
         self.stdout.write(self.style.SUCCESS(f'A total of {created} have been created'))
@@ -93,8 +88,8 @@ class Command(BaseCommand):
             'revision',
             'device_created',
             'device_modified',
-            'id',
-            'locator_log_id']
+            'locator_log_id',
+            'id']
         fields = []
         for field in LocatorLogEntry._meta.get_fields():
             if field.name not in exclude_fields:

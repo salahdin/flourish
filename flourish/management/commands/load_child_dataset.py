@@ -29,14 +29,25 @@ class Command(BaseCommand):
             # Update identifiers
             options.update(study_child_identifier=data_item.get('bid'))
             options.update(study_maternal_identifier=data_item.get('m_bid'))
+            options.update(dob=data_item.get('delivdt'))
 
             # Convert date to date objects
+            try:
+                dob = parser.parse(options.get('dob')).date()
+            except parser.ParserError:
+                options.update(dob=None)
+            else:
+                options.update(dob=dob)
+
             try:
                 infant_enrolldate = parser.parse(options.get('infant_enrolldate')).date()
             except parser.ParserError:
                 options.update(infant_enrolldate=None)
             else:
                 options.update(infant_enrolldate=infant_enrolldate)
+
+            if int(data_item.get('twin_triplet')) == 1:
+                options.update(twin_triplet=True)
 
             try:
                 infant_randdt = parser.parse(options.get('infant_randdt')).date()
@@ -288,9 +299,8 @@ class Command(BaseCommand):
                 print(e)
 
             try:
-                ChildDataset.objects.get(study_child_identifier=data_item.get('bid'))
-
-                data_set = ChildDataset.objects.get(study_child_identifier=data_item.get('bid'))
+                data_set = ChildDataset.objects.get(
+                    study_child_identifier=data_item.get('bid'))
 
                 for (key, value) in options.items():
                     setattr(data_set, key, value)

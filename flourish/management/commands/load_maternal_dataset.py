@@ -179,7 +179,7 @@ class Command(BaseCommand):
             data_item = dict(zip(header, line))
             data.append(data_item)
         return data
-    
+
     @property
     def all_model_fields(self):
         """Returns a list of maternal dataset model fields.

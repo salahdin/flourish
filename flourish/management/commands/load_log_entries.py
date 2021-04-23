@@ -3,7 +3,7 @@ from django.conf import settings
 
 from django.core.management.base import BaseCommand
 
-from flourish_caregiver.models import CaregiverLocator, MaternalDataset, LocatorLog, LocatorLogEntry
+from flourish_caregiver.models import LocatorLog, LocatorLogEntry
 from django.utils.timezone import make_aware
 import pytz
 import csv
@@ -37,34 +37,28 @@ class Command(BaseCommand):
                 options.update(report_datetime=report_datetime)
 
             try:
-                locator_date = parser.parse(options.get('locator_date')).date()
+                date_created = parser.parse(options.get('date_created')).date()
             except parser.ParserError:
-                options.update(locator_date=None)
+                options.update(date_created=None)
             else:
-                options.update(locator_date=locator_date)
+                options.update(date_created=date_created)
 
-            locator = None
-            try:
-                locator = CaregiverLocator.objects.get(
-                    study_maternal_identifier=data_item.get('study_maternal_identifier'))
-            except CaregiverLocator.DoesNotExist:
-                locator = CaregiverLocator.objects.create(**options)
-                created += 1
+            locatorlogentry = LocatorLogEntry.objects.filter(
+                locator_log__maternal_dataset__study_maternal_identifier=data_item.get(
+                    'study_maternal_identifier'))
+            if not locatorlogentry:
+                try:
+                    locatorlog = LocatorLog.objects.get(
+                        maternal_dataset__study_maternal_identifier=data_item.get(
+                            'study_maternal_identifier'))
+                except LocatorLog.DoesNotExist:
+                    pass
+                else:
+                    options.update(locator_log=locatorlog)
+                    locatorlogentry = LocatorLogEntry.objects.create(**options)
+                    created += 1
             else:
-                for (key, value) in options.items():
-                    setattr(locator, key, value)
-                locator.save()
                 already_exists += 1
-
-            try:
-                dataset = MaternalDataset.objects.get(
-                    study_maternal_identifier=data_item.get('study_maternal_identifier'))
-            except MaternalDataset.DoesNotExist:
-                pass
-            else:
-                screening_identifier = getattr(dataset, 'screening_identifier')
-                setattr(locator, 'screening_identifier', screening_identifier)
-                locator.save()
 
         self.stdout.write(self.style.SUCCESS(f'A total of {created} have been created'))
         self.stdout.write(self.style.WARNING(f'Total items {already_exists} already existed'))
@@ -77,7 +71,7 @@ class Command(BaseCommand):
         for row in csv_reader:
             data.append(row)
             total_import += 1
-        self.stdout.write(self.style.SUCCESS(f'Total locators {total_import}'))
+        self.stdout.write(self.style.SUCCESS(f'Total locators log entries {total_import}'))
         return data
 
     @property
@@ -94,18 +88,10 @@ class Command(BaseCommand):
             'revision',
             'device_created',
             'device_modified',
-            'id',
-            'site',
-            'site_id',
-            'slug',
-            'screening_identifier',
-            'action_identifier',
-            'tracking_identifier',
-            'related_tracking_identifier',
-            'parent_tracking_identifier',
-            'subject_identifier']
+            'locator_log_id',
+            'id']
         fields = []
-        for field in CaregiverLocator._meta.get_fields():
+        for field in LocatorLogEntry._meta.get_fields():
             if field.name not in exclude_fields:
                 fields.append(field.name)
         return fields

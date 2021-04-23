@@ -43,6 +43,7 @@ ETC_DIR = os.path.join('/etc/', APP_NAME)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# KEY_PATH = os.path.join(BASE_DIR, 'crypto_fields')
 # KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'flourish.bhp.org.bw']
@@ -70,7 +71,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'multiselectfield',
     'edc_action_item.apps.AppConfig',
-    'edc_calender.apps.AppConfig',
+    'edc_calendar.apps.AppConfig',
     'edc_consent.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
@@ -143,14 +144,23 @@ WSGI_APPLICATION = 'flourish.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+    # 'default': {
+        # 'ENGINE':  'django.db.backends.mysql',
+        # 'OPTIONS': {
+            # 'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
+        # }
+    # }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

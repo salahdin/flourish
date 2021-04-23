@@ -49,3 +49,5 @@ django_q
 xlwt
 django-crispy-forms
 django-multiselectfield
+notebook
+pandas

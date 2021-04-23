@@ -45,3 +45,6 @@ git+https://github.com/flourishbhp/flourish-prn.git@0.1.1#egg=flourish-prn
 git+https://github.com/flourishbhp/pre-flourish.git@0.1.1#egg=pre-flourish
 git+https://github.com/flourishbhp/flourish-reference@0.1.1#egg=flourish-reference
 git+https://github.com/flourishbhp/flourish-metadata-rules@0.1.1#egg=flourish-metadata-rules
+django-q
+pandas
+jupyter

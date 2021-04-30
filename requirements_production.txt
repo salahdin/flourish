@@ -47,7 +47,7 @@ git+https://github.com/flourishbhp/flourish-reference@0.1.1#egg=flourish-referen
 git+https://github.com/flourishbhp/flourish-metadata-rules@0.1.1#egg=flourish-metadata-rules
 mysqlclient
 xlwt
-django-multiselect
+django-multiselectfield
 django-crispy-forms
 gunicorn
 django-q

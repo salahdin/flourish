@@ -31,6 +31,6 @@ flourish.append_item(
         title='Worklist',
         label='Worklist',
         fa_icon='fa-user-plus',
-        url_name=settings.DASHBOARD_URL_NAMES.get('flourish_follow_listboard_url')))
+        url_name='flourish_follow:home_url'))
 
 site_navbars.register(flourish)

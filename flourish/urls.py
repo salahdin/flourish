@@ -71,6 +71,7 @@ urlpatterns = [
     path('pre_flourish/', include('pre_flourish.urls')),
     path('pre_flourish/subject/', include('pre_flourish.dashboard_urls')),
     path('flourish_follow/', include('flourish_follow.urls')),
+    path('flourish_reports/', include('flourish_reports.urls')),
     path('edc_appointment/', include('edc_appointment.urls')),
     path('edc_action_item/', include('edc_action_item.urls')),
     path('edc_base/', include('edc_base.urls')),

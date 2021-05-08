@@ -33,4 +33,12 @@ flourish.append_item(
         fa_icon='fa-user-plus',
         url_name='flourish_follow:home_url'))
 
+flourish.append_item(
+    NavbarItem(
+        name='reports',
+        title='Reports',
+        label='Reports',
+        fa_icon='fa-user-plus',
+        url_name='flourish_reports:home_url'))
+
 site_navbars.register(flourish)

@@ -91,6 +91,7 @@ INSTALLED_APPS = [
     'flourish_caregiver.apps.AppConfig',
     'flourish_child.apps.AppConfig',
     'flourish_follow.apps.AppConfig',
+    'flourish_reports.apps.AppConfig',
     'flourish_metadata_rules.apps.AppConfig',
     'flourish_reference.apps.AppConfig',
     'flourish_visit_schedule.apps.AppConfig',

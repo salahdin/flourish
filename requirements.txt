@@ -49,4 +49,4 @@ git+https://github.com/flourishbhp/flourish-metadata-rules@develop#egg=flourish_
 django-q
 pandas
 jupyter
-
+django-pandas

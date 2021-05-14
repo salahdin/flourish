@@ -28,6 +28,7 @@ from edc_metadata.admin_site import edc_metadata_admin
 from edc_reference.admin_site import edc_reference_admin
 from edc_registration.admin_site import edc_registration_admin
 from flourish_caregiver.admin_site import flourish_caregiver_admin
+from flourish_reports.admin_site import flourish_reports_admin
 from edc_visit_schedule.admin_site import edc_visit_schedule_admin
 from edc_call_manager.admin_site import edc_call_manager_admin
 from edc_data_manager.admin_site import edc_data_manager_admin
@@ -56,6 +57,7 @@ urlpatterns = [
     path('admin/', edc_reference_admin.urls),
     path('admin/', flourish_caregiver_admin.urls),
     path('admin/', flourish_follow_admin.urls),
+    path('admin/', flourish_reports_admin.urls),
     path('admin/', flourish_prn_admin.urls),
     path('admin/', pre_flourish_admin.urls),
     path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),

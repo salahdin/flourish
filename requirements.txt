@@ -50,3 +50,4 @@ django-q
 pandas
 jupyter
 django-pandas
+celery

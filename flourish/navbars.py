@@ -27,9 +27,9 @@ flourish.append_item(
 
 flourish.append_item(
     NavbarItem(
-        name='worklist',
-        title='Worklist',
-        label='Worklist',
+        name='Follow Ups',
+        title='Follow Ups',
+        label='Follow Ups',
         fa_icon='fa-user-plus',
         url_name='flourish_follow:home_url'))
 

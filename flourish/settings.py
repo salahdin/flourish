@@ -219,6 +219,7 @@ DASHBOARD_URL_NAMES = {
     'maternal_screening_listboard_url': 'flourish_dashboard:maternal_screening_listboard_url',
     'maternal_dataset_listboard_url': 'flourish_dashboard:maternal_dataset_listboard_url',
     'flourish_follow_listboard_url': 'flourish_follow:flourish_follow_listboard_url',
+    'flourish_follow_appt_listboard_url': 'flourish_follow:flourish_follow_appt_listboard_url',
     'subject_dashboard_url': 'flourish_dashboard:subject_dashboard_url'
 }
 
@@ -232,6 +233,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'maternal_screening_listboard_template': 'flourish_dashboard/screening/maternal_listboard.html',
     'maternal_dataset_listboard_template': 'flourish_dashboard/maternal_dataset/maternal_listboard.html',
     'flourish_follow_listboard_template': 'flourish_follow/follow_listboard.html',
+    'flourish_follow_appt_listboard_template': 'flourish_follow/appointments_windows_listboards.html',
     'pre_flourish_child_listboard_template': 'pre_flourish/child/child_listboard.html',
     'pre_flourish_subject_dashboard_template': 'pre_flourish/caregiver/dashboard.html',
     'pre_flourish_screening_listboard_template': 'pre_flourish/caregiver/listboard.html',

@@ -7,6 +7,7 @@ from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
 from edc_appointment.appointment_config import AppointmentConfig
 from edc_appointment.constants import COMPLETE_APPT
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
+from edc_constants.constants import FAILED_ELIGIBILITY
 from edc_data_manager.apps import AppConfig as BaseEdcDataManagerAppConfig
 from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_locator.apps import AppConfig as BaseEdcLocatorAppConfig
@@ -118,5 +119,5 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
         'pre_flourish.preflourishcaregivervisit': 'reason',
         'flourish_caregiver.maternalvisit': 'reason',
         'flourish_child.childvisit': 'reason', }
-    create_on_reasons = [SCHEDULED, UNSCHEDULED]
-    delete_on_reasons = [LOST_VISIT, MISSED_VISIT]
+    create_on_reasons = [SCHEDULED, UNSCHEDULED, COMPLETED_PROTOCOL_VISIT]
+    delete_on_reasons = [LOST_VISIT, MISSED_VISIT, FAILED_ELIGIBILITY]

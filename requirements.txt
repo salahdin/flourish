@@ -40,6 +40,7 @@ git+https://github.com/flourishbhp/flourish-caregiver.git@develop#egg=flourish_c
 git+https://github.com/flourishbhp/flourish-dashboard.git@develop#egg=flourish_dashboard
 git+https://github.com/flourishbhp/flourish-visit-schedule.git@develop#egg=flourish_visit_schedule
 git+https://github.com/flourishbhp/flourish-follow.git@develop#egg=flourish_follow
+git+https://github.com/flourishbhp/flourish-reports.git@develop#egg=flourish_reports
 git+https://github.com/flourishbhp/flourish-form-validations.git@develop#egg=flourish_form_validations
 git+https://github.com/flourishbhp/flourish-prn.git@develop#egg=flourish_prn
 git+https://github.com/flourishbhp/pre-flourish.git@develop#egg=pre_flourish
@@ -48,4 +49,8 @@ git+https://github.com/flourishbhp/flourish-metadata-rules@develop#egg=flourish_
 django-q
 pandas
 jupyter
-
+django-pandas
+celery
+django-crispy-forms
+django-multiselectfield
+xlwt

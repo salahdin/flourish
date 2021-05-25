@@ -27,10 +27,18 @@ flourish.append_item(
 
 flourish.append_item(
     NavbarItem(
-        name='worklist',
-        title='Worklist',
-        label='Worklist',
+        name='Follow Ups',
+        title='Follow Ups',
+        label='Follow Ups',
         fa_icon='fa-user-plus',
-        url_name=settings.DASHBOARD_URL_NAMES.get('flourish_follow_listboard_url')))
+        url_name='flourish_follow:home_url'))
+
+flourish.append_item(
+    NavbarItem(
+        name='reports',
+        title='Reports',
+        label='Reports',
+        fa_icon='fa-user-plus',
+        url_name='flourish_reports:home_url'))
 
 site_navbars.register(flourish)

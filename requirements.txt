@@ -51,3 +51,6 @@ pandas
 jupyter
 django-pandas
 celery
+django-crispy-forms
+django-multiselectfield
+xlwt

@@ -101,6 +101,7 @@ INSTALLED_APPS = [
     'flourish.apps.EdcFacilityAppConfig',
     'flourish.apps.EdcLocatorAppConfig',
     'flourish.apps.EdcMetadataAppConfig',
+    'flourish.apps.EdcOdkAppConfig',
     'flourish.apps.EdcProtocolAppConfig',
     'flourish.apps.EdcVisitTrackingAppConfig',
     'flourish.apps.EdcTimepointAppConfig',
@@ -189,6 +190,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
+ATTACH_FORMAT = 'https://%(host)s/v1/projects/2/forms/%(form_id)s/%(api)s/%(instance_id)s/attachments'
+BASE_FORMAT = 'https://%(host)s/v1/projects/2/forms/%(form_id)s/%(api)s'
+
 LANGUAGE_CODE = 'en-us'
 
 LANGUAGES = (
@@ -220,7 +224,8 @@ DASHBOARD_URL_NAMES = {
     'maternal_dataset_listboard_url': 'flourish_dashboard:maternal_dataset_listboard_url',
     'flourish_follow_listboard_url': 'flourish_follow:flourish_follow_listboard_url',
     'flourish_follow_appt_listboard_url': 'flourish_follow:flourish_follow_appt_listboard_url',
-    'subject_dashboard_url': 'flourish_dashboard:subject_dashboard_url'
+    'subject_dashboard_url': 'flourish_dashboard:subject_dashboard_url',
+    'odk_listboard_url': 'edc_odk:odk_listboard_url'
 }
 
 DASHBOARD_BASE_TEMPLATES = {
@@ -239,6 +244,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'pre_flourish_screening_listboard_template': 'pre_flourish/caregiver/listboard.html',
     'pre_flourish_subject_listboard_template': 'pre_flourish/caregiver/subject_listboard.html',
     'child_screening_listboard_template': 'flourish_dashboard/child_subject/screening_listboard.html',
+    'odk_listboard_template': 'edc_odk/odk_forms/listboard.html'
     }
 
 # Static files (CSS, JavaScript, Images)

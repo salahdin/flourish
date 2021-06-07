@@ -13,6 +13,7 @@ from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_locator.apps import AppConfig as BaseEdcLocatorAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
+from edc_odk.apps import AppConfig as BaseEdcOdkAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_timepoint.timepoint import Timepoint
 from edc_timepoint.timepoint_collection import TimepointCollection
@@ -121,3 +122,11 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
         'flourish_child.childvisit': 'reason', }
     create_on_reasons = [SCHEDULED, UNSCHEDULED, COMPLETED_PROTOCOL_VISIT]
     delete_on_reasons = [LOST_VISIT, MISSED_VISIT, FAILED_ELIGIBILITY]
+
+
+class EdcOdkAppConfig(BaseEdcOdkAppConfig):
+    clinician_notes_form_ids = {
+        'flourish_child': 'child_cliniciannotes_v1.0dev'}
+
+    clinician_notes_models = {
+        'flourish_child': 'childcliniciannotes'}

@@ -146,27 +146,33 @@ WSGI_APPLICATION = 'flourish.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-    # 'default': {
-        # 'ENGINE':  'django.db.backends.mysql',
-        # 'OPTIONS': {
-            # 'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
-        # }
-    # }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE':  'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
+        }
     }
 }
+
+ODK_SERVER_TYPE = 'central'
+ODK_CONFIGURATION = {
+    'OPTIONS': {
+        'read_default_file': '/etc/odk/odk.cnf',
+    },
+}
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Celery configurations
 CELERY_TIMEZONE = 'Africa/Gaborone'
 CELERY_BROKER_URL = 'amqp://localhost'
-CELERY_INCLUDE = ['flourish_child.utils', ]
+CELERY_INCLUDE = ['flourish_child.utils', 'edc_odk.tasks', ]
 # CELERY_RESULT_BACKEND = 'file:///etc/celery/results'
 
 # Password validation
@@ -190,7 +196,6 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-ATTACH_FORMAT = 'https://%(host)s/v1/projects/2/forms/%(form_id)s/%(api)s/%(instance_id)s/attachments'
 BASE_FORMAT = 'https://%(host)s/v1/projects/2/forms/%(form_id)s/%(api)s'
 
 LANGUAGE_CODE = 'en-us'

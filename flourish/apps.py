@@ -126,7 +126,9 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
 
 class EdcOdkAppConfig(BaseEdcOdkAppConfig):
     clinician_notes_form_ids = {
-        'flourish_child': 'child_cliniciannotes_v1.0dev'}
+        'flourish_child': 'child_cliniciannotes_v1.0dev',
+        'flourish_caregiver': 'caregiver_cliniciannotes_v1.0dev'}
 
     clinician_notes_models = {
-        'flourish_child': 'childcliniciannotes'}
+        'flourish_child': 'childcliniciannotes',
+        'flourish_caregiver': 'cliniciannotes'}

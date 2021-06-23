@@ -1,3 +1,4 @@
+from django.apps import apps as django_apps
 from django.views.generic import TemplateView
 from edc_base.view_mixins import EdcBaseViewMixin
 from edc_navbar import NavbarViewMixin
@@ -17,9 +18,29 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
         """
         return SubjectConsent.objects.all().count()
 
+    @property
+    def total_child_assents(self):
+        child_assent_cls = django_apps.get_model('flourish_child.childassent')
+        return child_assent_cls.objects.count()
+
+    @property
+    def total_child_consents(self):
+        child_consent_cls = django_apps.get_model(
+            'flourish_caregiver.caregiverchildconsent')
+        return child_consent_cls.objects.count()
+
+    @property
+    def total_continued_consents(self):
+        continued_consent_cls = django_apps.get_model(
+            'flourish_child.childcontinuedconsent')
+        return continued_consent_cls.objects.count()
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
         context.update(
-            flourish_consents=self.total_flourish_consents)
+            flourish_consents=self.total_flourish_consents,
+            flourish_assents=self.total_child_assents,
+            child_consents=self.total_child_consents,
+            continued_consents=self.total_continued_consents)
         return context

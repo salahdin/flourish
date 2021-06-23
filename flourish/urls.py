@@ -32,6 +32,7 @@ from flourish_reports.admin_site import flourish_reports_admin
 from edc_visit_schedule.admin_site import edc_visit_schedule_admin
 from edc_call_manager.admin_site import edc_call_manager_admin
 from edc_data_manager.admin_site import edc_data_manager_admin
+from edc_odk.admin_site import edc_odk_admin
 
 from flourish_child.admin_site import flourish_child_admin
 from pre_flourish.admin_site import pre_flourish_admin
@@ -55,6 +56,7 @@ urlpatterns = [
     path('admin/', edc_metadata_admin.urls),
     path('admin/', edc_registration_admin.urls),
     path('admin/', edc_reference_admin.urls),
+    path('admin/', edc_odk_admin.urls),
     path('admin/', flourish_caregiver_admin.urls),
     path('admin/', flourish_follow_admin.urls),
     path('admin/', flourish_reports_admin.urls),
@@ -82,6 +84,7 @@ urlpatterns = [
     path('edc_data_manager/', include('edc_data_manager.urls')),
     path('edc_call_manager/', include('edc_call_manager.urls')),
     path('edc_device/', include('edc_device.urls')),
+    path('edc_odk_forms/', include('edc_odk.urls')),
     path('edc_protocol/', include('edc_protocol.urls')),
     path('edc_reference/', include('edc_reference.urls')),
     path('edc_subject_dashboard/', include('edc_subject_dashboard.urls')),

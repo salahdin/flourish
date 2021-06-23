@@ -13,6 +13,7 @@ from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_locator.apps import AppConfig as BaseEdcLocatorAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
+from edc_odk.apps import AppConfig as BaseEdcOdkAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_timepoint.timepoint import Timepoint
 from edc_timepoint.timepoint_collection import TimepointCollection
@@ -59,9 +60,9 @@ class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
     protocol_number = '142'
     protocol_title = ''
     study_open_datetime = datetime(
-        2020, 9, 16, 0, 0, 0, tzinfo=gettz('UTC'))
+        2020, 7, 1, 0, 0, 0, tzinfo=gettz('UTC'))
     study_close_datetime = datetime(
-        2025, 12, 31, 23, 59, 59, tzinfo=gettz('UTC'))
+        2025, 6, 30, 23, 59, 59, tzinfo=gettz('UTC'))
 
 
 class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
@@ -121,3 +122,13 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
         'flourish_child.childvisit': 'reason', }
     create_on_reasons = [SCHEDULED, UNSCHEDULED, COMPLETED_PROTOCOL_VISIT]
     delete_on_reasons = [LOST_VISIT, MISSED_VISIT, FAILED_ELIGIBILITY]
+
+
+class EdcOdkAppConfig(BaseEdcOdkAppConfig):
+    clinician_notes_form_ids = {
+        'flourish_child': 'child_cliniciannotes_v1.0dev',
+        'flourish_caregiver': 'caregiver_cliniciannotes_v1.0dev'}
+
+    clinician_notes_models = {
+        'flourish_child': 'childcliniciannotes',
+        'flourish_caregiver': 'cliniciannotes'}

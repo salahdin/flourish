@@ -22,5 +22,9 @@ app.conf.beat_schedule = {
     "schedule-over-age-calculation": {
         "task": "flourish_child.utils.over_age_limit",
         "schedule": crontab(hour=6, minute=0, day_of_week='mon-fri')
+    },
+    "schedule-odk-data-pull": {
+        "task": "edc_odk.tasks.pull_all_data_from_odkcentral",
+        "schedule": crontab(minute="*", day_of_week='*')
     }
 }

@@ -176,6 +176,14 @@ ODK_CONFIGURATION = {
 }
 
 
+# Email configurations
+EMAIL_BACKEND = config['email_conf'].get('email_backend')
+EMAIL_HOST = config['email_conf'].get('email_host')
+EMAIL_USE_TLS = config['email_conf'].get('email_use_tls')
+EMAIL_PORT = config['email_conf'].get('email_port')
+EMAIL_HOST_USER = config['email_conf'].get('email_user')
+EMAIL_HOST_PASSWORD = config['email_conf'].get('email_host_pwd')
+
 # Celery configurations
 CELERY_TIMEZONE = 'Africa/Gaborone'
 CELERY_BROKER_URL = 'amqp://localhost'

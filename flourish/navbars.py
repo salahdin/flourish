@@ -39,6 +39,13 @@ flourish.append_item(
         title='Reports',
         label='Reports',
         fa_icon='fa-user-plus',
-        url_name='flourish_reports:home_url'))
+        url_name='flourish_reports:recruitment_report_url'))
+
+flourish.append_item(
+    NavbarItem(
+        name='export_data',
+        label='Export Data',
+        fa_icon='fa fa-database',
+        url_name=settings.DASHBOARD_URL_NAMES.get('export_listboard_url')))
 
 site_navbars.register(flourish)

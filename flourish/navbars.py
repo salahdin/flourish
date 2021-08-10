@@ -1,6 +1,7 @@
 from django.conf import settings
 from edc_navbar import NavbarItem, site_navbars, Navbar
 
+
 flourish = Navbar(name='flourish')
 
 flourish.append_item(
@@ -39,5 +40,12 @@ flourish.append_item(
         label='Reports',
         fa_icon='fa-user-plus',
         url_name='flourish_reports:recruitment_report_url'))
+
+flourish.append_item(
+    NavbarItem(
+        name='export_data',
+        label='Export Data',
+        fa_icon='fa fa-database',
+        url_name=settings.DASHBOARD_URL_NAMES.get('export_listboard_url')))
 
 site_navbars.register(flourish)

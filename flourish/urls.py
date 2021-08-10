@@ -38,6 +38,7 @@ from flourish_child.admin_site import flourish_child_admin
 from pre_flourish.admin_site import pre_flourish_admin
 from flourish_follow.admin_site import flourish_follow_admin
 from flourish_prn.admin_site import flourish_prn_admin
+from flourish_export.admin_site import flourish_export_admin
 
 from .views import HomeView, AdministrationView
 
@@ -57,6 +58,7 @@ urlpatterns = [
     path('admin/', edc_registration_admin.urls),
     path('admin/', edc_reference_admin.urls),
     path('admin/', edc_odk_admin.urls),
+    path('admin/', flourish_export_admin.urls),
     path('admin/', flourish_caregiver_admin.urls),
     path('admin/', flourish_follow_admin.urls),
     path('admin/', flourish_reports_admin.urls),
@@ -76,6 +78,7 @@ urlpatterns = [
     path('pre_flourish/subject/', include('pre_flourish.dashboard_urls')),
     path('flourish_follow/', include('flourish_follow.urls')),
     path('flourish_reports/', include('flourish_reports.urls')),
+    path('flourish_export/', include('flourish_export.urls')),
     path('edc_appointment/', include('edc_appointment.urls')),
     path('edc_action_item/', include('edc_action_item.urls')),
     path('edc_base/', include('edc_base.urls')),

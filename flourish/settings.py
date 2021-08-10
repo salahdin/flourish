@@ -86,6 +86,7 @@ INSTALLED_APPS = [
     'edc_visit_schedule.apps.AppConfig',
     'edc_call_manager.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
+    'flourish_export.apps.AppConfig',
     'flourish_dashboard.apps.AppConfig',
     'flourish_prn.apps.AppConfig',
     'flourish_caregiver.apps.AppConfig',
@@ -142,17 +143,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'flourish.wsgi.application'
 
+
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 mysql_config = configparser.ConfigParser()
 mysql_config.read(os.path.join(ETC_DIR, 'mysql.conf'))
+
 
 HOST = mysql_config['mysql']['host']
 DB_USER = mysql_config['mysql']['user']
 DB_PASSWORD = mysql_config['mysql']['password']
 DB_NAME = mysql_config['mysql']['database']
 PORT = mysql_config['mysql']['port']
-
+ 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -164,12 +167,14 @@ DATABASES = {
     }
 }
 
+
 ODK_SERVER_TYPE = 'central'
 ODK_CONFIGURATION = {
     'OPTIONS': {
         'read_default_file': '/etc/odk/odk.cnf',
     },
 }
+
 
 # Email configurations
 EMAIL_BACKEND = config['email_conf'].get('email_backend')
@@ -241,6 +246,7 @@ DASHBOARD_URL_NAMES = {
     'flourish_follow_appt_listboard_url': 'flourish_follow:flourish_follow_appt_listboard_url',
     'subject_dashboard_url': 'flourish_dashboard:subject_dashboard_url',
     'odk_listboard_url': 'edc_odk:odk_listboard_url',
+    'export_listboard_url': 'flourish_export:export_listboard_url',
 }
 
 DASHBOARD_BASE_TEMPLATES = {
@@ -260,6 +266,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'pre_flourish_subject_listboard_template': 'pre_flourish/caregiver/subject_listboard.html',
     'child_screening_listboard_template': 'flourish_dashboard/child_subject/screening_listboard.html',
     'odk_listboard_template': 'edc_odk/odk_forms/listboard.html',
+     'export_listboard_template': 'flourish_export/listboard.html',
     }
 
 # Static files (CSS, JavaScript, Images)

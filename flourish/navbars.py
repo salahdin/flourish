@@ -46,6 +46,6 @@ flourish.append_item(
         name='export_data',
         label='Export Data',
         fa_icon='fa fa-database',
-        url_name=settings.DASHBOARD_URL_NAMES.get('export_listboard_url')))
+        url_name='flourish_export:home_url'))
 
 site_navbars.register(flourish)

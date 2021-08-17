@@ -17,8 +17,9 @@ class Command(BaseCommand):
         created = 0
         file_path = kwargs['file_path']
         data = self.data(file_path=file_path)
-        
+
         for data_item in data:
+
             options = {}
             for field_name in self.all_model_fields:
                 options[field_name] = data_item.get(field_name)
@@ -39,71 +40,71 @@ class Command(BaseCommand):
                 options.update(mom_arvstart_date=None)
             else:
                 options.update(mom_arvstart_date=mom_arvstart_date)
-        
+
             try:
-                mom_baseline_hgbdt = parser.parse(options.get('mom_baseline_hgbdt'))
+                mom_baseline_hgbdt = parser.parse(options.get('mom_baseline_hgbdt') or '')
             except parser.ParserError:
                 options.update(mom_baseline_hgbdt=None)
             else:
                 options.update(mom_baseline_hgbdt=mom_baseline_hgbdt)
-            
+
             try:
                 delivdt = parser.parse(options.get('delivdt')).date()
             except parser.ParserError:
                 options.update(delivdt=None)
             else:
                 options.update(delivdt=delivdt)
-            
+
             try:
-                mom_deathdate = parser.parse(options.get('mom_deathdate')).date()
+                mom_deathdate = parser.parse(options.get('mom_deathdate') or '').date()
             except parser.ParserError:
                 options.update(mom_deathdate=None)
             else:
                 options.update(mom_deathdate=mom_deathdate)
-            
+
             try:
                 mom_baseline_cd4date = parser.parse(options.get('mom_baseline_cd4date'))
             except parser.ParserError:
                 options.update(mom_baseline_cd4date=None)
             else:
                 options.update(mom_baseline_cd4date=mom_baseline_cd4date)
-            
+
             try:
                 mom_baseline_vldate = parser.parse(options.get('mom_baseline_vldate'))
             except parser.ParserError:
                 options.update(mom_baseline_vldate=None)
             else:
                 options.update(mom_baseline_vldate=mom_baseline_vldate)
-            
+
             # Convert int values to int objects
             try:
-                parity = int(options.get('parity'))
+                parity = int(options.get('parity') or '')
             except ValueError:
                 options.update(parity=None)
             else:
                 options.update(parity=parity)
-        
+
             try:
-                live_inhouse_number = int(options.get('live_inhouse_number'))
+                live_inhouse_number = int(options.get('live_inhouse_number') or '')
             except ValueError:
                 options.update(live_inhouse_number=None)
             else:
                 options.update(live_inhouse_number=live_inhouse_number)
-            
+
             try:
-                gravida = int(options.get('gravida'))
+                gravida = int(options.get('gravida') or '')
             except ValueError:
                 options.update(gravida=None)
             else:
                 options.update(gravida=gravida)
-            
+
             try:
                 mom_baseline_cd4 = int(options.get('mom_baseline_cd4'))
             except ValueError:
                 options.update(mom_baseline_cd4=None)
             else:
                 options.update(mom_baseline_cd4=mom_baseline_cd4)
-            
+
             try:
                 mom_baseline_vl = int(options.get('mom_baseline_vl'))
             except ValueError:
@@ -198,7 +199,7 @@ class Command(BaseCommand):
             'site',
             'subject_identifier',
             'screening_identifier',
-            'study_maternal_identifier',]
+            'study_maternal_identifier', ]
         fields = []
         for field in MaternalDataset._meta.get_fields():
             if not field.name in exclude_fields:

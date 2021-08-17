@@ -50,7 +50,7 @@ class Command(BaseCommand):
                 options.update(twin_triplet=True)
 
             try:
-                infant_randdt = parser.parse(options.get('infant_randdt')).date()
+                infant_randdt = parser.parse(options.get('infant_randdt') or '').date()
             except parser.ParserError:
                 options.update(infant_randdt=None)
             else:
@@ -64,42 +64,42 @@ class Command(BaseCommand):
                 options.update(infant_azt_startdate=infant_azt_startdate)
 
             try:
-                infant_azt_stopdate = parser.parse(options.get('infant_azt_stopdate')).date()
+                infant_azt_stopdate = parser.parse(options.get('infant_azt_stopdate') or '').date()
             except parser.ParserError:
                 options.update(infant_azt_stopdate=None)
             else:
                 options.update(infant_azt_stopdate=infant_azt_stopdate)
 
             try:
-                weandt = parser.parse(options.get('weandt')).date()
+                weandt = parser.parse(options.get('weandt') or '').date()
             except parser.ParserError:
                 options.update(weandt=None)
             else:
                 options.update(weandt=weandt)
 
             try:
-                deathdt = parser.parse(options.get('deathdt')).date()
+                deathdt = parser.parse(options.get('deathdt') or '').date()
             except parser.ParserError:
                 options.update(deathdt=None)
             else:
                 options.update(deathdt=deathdt)
 
             try:
-                firsthospdt = parser.parse(options.get('firsthospdt')).date()
+                firsthospdt = parser.parse(options.get('firsthospdt') or '').date()
             except parser.ParserError:
                 options.update(firsthospdt=None)
             else:
                 options.update(firsthospdt=firsthospdt)
 
             try:
-                infant_offstudydate = parser.parse(options.get('infant_offstudydate')).date()
+                infant_offstudydate = parser.parse(options.get('infant_offstudydate') or '').date()
             except parser.ParserError:
                 options.update(infant_offstudydate=None)
             else:
                 options.update(infant_offstudydate=infant_offstudydate)
 
             try:
-                infant_lastcontactdt = parser.parse(options.get('infant_lastcontactdt')).date()
+                infant_lastcontactdt = parser.parse(options.get('infant_lastcontactdt') or '').date()
             except parser.ParserError:
                 options.update(infant_lastcontactdt=None)
             else:
@@ -114,14 +114,14 @@ class Command(BaseCommand):
 
             # Convert int values to int objects
             try:
-                infant_azt_days = int(options.get('infant_azt_days'))
+                infant_azt_days = int(options.get('infant_azt_days') or '')
             except ValueError:
                 options.update(infant_azt_days=None)
             else:
                 options.update(infant_azt_days=infant_azt_days)
 
             try:
-                infant_breastfed_days = int(options.get('infant_breastfed_days'))
+                infant_breastfed_days = int(options.get('infant_breastfed_days') or '')
             except ValueError:
                 options.update(infant_breastfed_days=None)
             else:
@@ -149,63 +149,63 @@ class Command(BaseCommand):
                 options.update(apgarscore_10min=apgarscore_10min)
 
             try:
-                hospnum = int(options.get('hospnum'))
+                hospnum = int(options.get('hospnum') or '')
             except ValueError:
                 options.update(hospnum=None)
             else:
                 options.update(hospnum=hospnum)
 
             try:
-                idth = int(options.get('idth'))
+                idth = int(options.get('idth') or '')
             except ValueError:
                 options.update(idth=None)
             else:
                 options.update(idth=idth)
 
             try:
-                idth_days = int(options.get('idth_days'))
+                idth_days = int(options.get('idth_days') or '')
             except ValueError:
                 options.update(idth_days=None)
             else:
                 options.update(idth_days=idth_days)
 
             try:
-                ihiv = int(options.get('ihiv'))
+                ihiv = int(options.get('ihiv') or '')
             except ValueError:
                 options.update(ihiv=None)
             else:
                 options.update(ihiv=ihiv)
 
             try:
-                ihiv_days = int(options.get('ihiv_days'))
+                ihiv_days = int(options.get('ihiv_days') or '')
             except ValueError:
                 options.update(ihiv_days=None)
             else:
                 options.update(ihiv_days=ihiv_days)
 
             try:
-                ihosp = int(options.get('ihosp'))
+                ihosp = int(options.get('ihosp') or '')
             except ValueError:
                 options.update(ihosp=None)
             else:
                 options.update(ihosp=ihosp)
 
             try:
-                ihosp_days = int(options.get('ihosp_days'))
+                ihosp_days = int(options.get('ihosp_days') or '')
             except ValueError:
                 options.update(ihosp_days=None)
             else:
                 options.update(ihosp_days=ihosp_days)
 
             try:
-                infant_onstudy_days = int(options.get('infant_onstudy_days'))
+                infant_onstudy_days = int(options.get('infant_onstudy_days') or '')
             except ValueError:
                 options.update(infant_onstudy_days=None)
             else:
                 options.update(infant_onstudy_days=infant_onstudy_days)
 
             try:
-                age_gt17_5 = int(options.get('age_gt17_5'))
+                age_gt17_5 = int(options.get('age_gt17_5') or '')
             except ValueError:
                 options.update(age_gt17_5=None)
             else:
@@ -217,6 +217,13 @@ class Command(BaseCommand):
                 options.update(infant_offstudy_complete=None)
             else:
                 options.update(infant_offstudy_complete=infant_offstudy_complete)
+
+            try:
+                first_name = options.get('child_first_name') or ''
+            except ValueError:
+                options.update(first_name=None)
+            else:
+                options.update(first_name=first_name)
 
             # Convert decimal values to decimal objects
             if options.get('birthweight') and not options.get('birthweight') == '.':

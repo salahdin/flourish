@@ -57,7 +57,8 @@ class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
             ['kmmasa@bhp.org.bw', 'skgole@bhp.org.bw', 'gmasasa@bhp.org.bw']],
         'td_ras': [
             ('td_ras', 'TD RAs'),
-            ['gelija@bhp.org.bw', 'pmaano@bhp.org.bw', 'lmakgeng@bhp.org.bw']],
+            ['gelija@bhp.org.bw', 'pmaano@bhp.org.bw', 'lmakgeng@bhp.org.bw',
+             'oselepe@bhp.org.bw']],
         'se_dmc': [
             ('se_dmc', 'SE & DMC'),
             ['adiphoko@bhp.org.bw', 'ckgathi@bhp.org.bw', 'imosweu@bhp.org.bw',

@@ -256,6 +256,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'child_listboard_template': 'flourish_dashboard/child_subject/listboard.html',
     'subject_listboard_template': 'flourish_dashboard/maternal_subject/listboard.html',
     'subject_dashboard_template': 'flourish_dashboard/maternal_subject/dashboard.html',
+    'data_manager_listboard_template': 'edc_data_manager/listboard.html',
     'maternal_screening_listboard_template': 'flourish_dashboard/screening/maternal_listboard.html',
     'maternal_dataset_listboard_template': 'flourish_dashboard/maternal_dataset/maternal_listboard.html',
     'flourish_follow_listboard_template': 'flourish_follow/follow_listboard.html',

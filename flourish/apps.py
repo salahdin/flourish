@@ -51,7 +51,17 @@ class EdcBaseAppConfig(BaseEdcBaseAppConfig):
 
 class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
     identifier_pattern = subject_identifier
-    extra_assignee_choices = {}
+    extra_assignee_choices = {
+        'td_clinic': [
+            ('td_clinic', 'TD Clinic'),
+            ['kmmasa@bhp.org.bw', 'skgole@bhp.org.bw', 'gmasasa@bhp.org.bw']],
+        'td_ras': [
+            ('td_ras', 'TD RAs'),
+            ['gelija@bhp.org.bw', 'pmaano@bhp.org.bw', 'lmakgeng@bhp.org.bw']],
+        'se_dmc': [
+            ('se_dmc', 'SE & DMC'),
+            ['adiphoko@bhp.org.bw', 'ckgathi@bhp.org.bw', 'imosweu@bhp.org.bw',
+             'mchawawa@bhp.org.bw']]}
 
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):

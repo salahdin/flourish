@@ -128,21 +128,21 @@ class Command(BaseCommand):
                 options.update(infant_breastfed_days=infant_breastfed_days)
 
             try:
-                apgarscore_1min = int(options.get('apgarscore_1min'))
+                apgarscore_1min = int(options.get('apgarscore_1min') or '')
             except ValueError:
                 options.update(apgarscore_1min=None)
             else:
                 options.update(apgarscore_1min=apgarscore_1min)
 
             try:
-                apgarscore_5min = int(options.get('apgarscore_5min'))
+                apgarscore_5min = int(options.get('apgarscore_5min') or '')
             except ValueError:
                 options.update(apgarscore_5min=None)
             else:
                 options.update(apgarscore_5min=apgarscore_5min)
 
             try:
-                apgarscore_10min = int(options.get('apgarscore_10min'))
+                apgarscore_10min = int(options.get('apgarscore_10min') or '')
             except ValueError:
                 options.update(apgarscore_10min=None)
             else:

@@ -7,6 +7,7 @@ from flourish_caregiver.models import CaregiverLocator, MaternalDataset, Locator
 from django.utils.timezone import make_aware
 import pytz
 import csv
+from edc_base.utils import get_utcnow
 
 
 class Command(BaseCommand):
@@ -29,8 +30,8 @@ class Command(BaseCommand):
 
             # Convert date to date objects
             try:
-                report_datetime = parser.parse(options.get('report_datetime'))
-                report_datetime = make_aware(report_datetime, pytz.timezone(settings.TIME_ZONE))
+                report_datetime = get_utcnow()
+                # report_datetime = make_aware(report_datetime, pytz.timezone(settings.TIME_ZONE))
             except parser.ParserError:
                 options.update(report_datetime=None)
             else:
@@ -48,6 +49,7 @@ class Command(BaseCommand):
                 locator = CaregiverLocator.objects.get(
                     study_maternal_identifier=data_item.get('study_maternal_identifier'))
             except CaregiverLocator.DoesNotExist:
+                options.update(user_created='imosweu')
                 locator = CaregiverLocator.objects.create(**options)
                 created += 1
             else:

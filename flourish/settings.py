@@ -86,6 +86,7 @@ INSTALLED_APPS = [
     'edc_visit_schedule.apps.AppConfig',
     'edc_call_manager.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
+    'flourish_export.apps.AppConfig',
     'flourish_dashboard.apps.AppConfig',
     'flourish_prn.apps.AppConfig',
     'flourish_caregiver.apps.AppConfig',
@@ -241,6 +242,7 @@ DASHBOARD_URL_NAMES = {
     'flourish_follow_appt_listboard_url': 'flourish_follow:flourish_follow_appt_listboard_url',
     'subject_dashboard_url': 'flourish_dashboard:subject_dashboard_url',
     'odk_listboard_url': 'edc_odk:odk_listboard_url',
+    'export_listboard_url': 'flourish_export:export_listboard_url',
 }
 
 DASHBOARD_BASE_TEMPLATES = {
@@ -250,6 +252,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'child_listboard_template': 'flourish_dashboard/child_subject/listboard.html',
     'subject_listboard_template': 'flourish_dashboard/maternal_subject/listboard.html',
     'subject_dashboard_template': 'flourish_dashboard/maternal_subject/dashboard.html',
+    'data_manager_listboard_template': 'edc_data_manager/listboard.html',
     'maternal_screening_listboard_template': 'flourish_dashboard/screening/maternal_listboard.html',
     'maternal_dataset_listboard_template': 'flourish_dashboard/maternal_dataset/maternal_listboard.html',
     'flourish_follow_listboard_template': 'flourish_follow/follow_listboard.html',
@@ -260,6 +263,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'pre_flourish_subject_listboard_template': 'pre_flourish/caregiver/subject_listboard.html',
     'child_screening_listboard_template': 'flourish_dashboard/child_subject/screening_listboard.html',
     'odk_listboard_template': 'edc_odk/odk_forms/listboard.html',
+    'export_listboard_template': 'flourish_export/listboard.html',
     }
 
 # Static files (CSS, JavaScript, Images)

@@ -1,5 +1,5 @@
-git+https://github.com/botswana-harvard/django-crypto-fields.git@0.3.1#egg=django-crypto-fields
-git+https://github.com/botswana-harvard/django-revision.git@0.1.19#egg=django-revision
+git+https://github.com/botswana-harvard/django-crypto-fields.git@0.1.14#egg=django-crypto-fields
+git+https://github.com/botswana-harvard/django-revision.git@0.1.14#egg=django-revision
 git+https://github.com/botswana-harvard/edc-action-item.git@0.1.5#egg=edc-action-item
 git+https://github.com/botswana-harvard/edc-appointment.git@0.2.20#egg=edc-appointment
 git+https://github.com/botswana-harvard/edc-base.git@0.2.26#egg=edc-base

@@ -10,13 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-import os
-import sys
 import configparser
+import os
+from pathlib import Path
+import sys
 
 from django.core.management.color import color_style
-
-from pathlib import Path
 
 style = color_style()
 
@@ -30,6 +29,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'r2+kl0ci5#p_h4(e4edde8zko5ch%pp^jc-3z%rvh@fzmtv%09'
 
 SITE_ID = 40
+
+DEFAULT_STUDY_SITE = 40
 
 REVIEWER_SITE_ID = 1
 
@@ -94,6 +95,7 @@ INSTALLED_APPS = [
     'flourish_follow.apps.AppConfig',
     'flourish_reports.apps.AppConfig',
     'flourish_metadata_rules.apps.AppConfig',
+    'flourish_labs.apps.AppConfig',
     'flourish_reference.apps.AppConfig',
     'flourish_visit_schedule.apps.AppConfig',
     'flourish.apps.EdcAppointmentAppConfig',

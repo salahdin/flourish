@@ -44,7 +44,7 @@ flourish.append_item(
 flourish.append_item(
     NavbarItem(
         name='export_data',
-        label='Export Data',
+        label=None,
         fa_icon='fa fa-database',
         url_name='flourish_export:home_url'))
 

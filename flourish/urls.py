@@ -42,6 +42,8 @@ from flourish_export.admin_site import flourish_export_admin
 
 from .views import HomeView, AdministrationView
 
+app_name = 'flourish_follow'
+
 urlpatterns = [
     path('accounts/', include('edc_base.auth.urls')),
     path('admin/', include('edc_base.auth.urls')),

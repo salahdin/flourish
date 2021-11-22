@@ -40,6 +40,8 @@ LOGIN_REDIRECT_URL = 'home_url'
 
 INDEX_PAGE = 'flourish.bhp.org.bw'
 
+# AUTO_CREATE_KEYS = True
+
 ETC_DIR = os.path.join('/etc/', APP_NAME)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -148,7 +150,7 @@ WSGI_APPLICATION = 'flourish.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 mysql_config = configparser.ConfigParser()
-mysql_config.read(os.path.join(ETC_DIR, 'mysql.conf'))
+mysql_config.read(os.path.join(ETC_DIR, 'mysql.ini'))
 
 HOST = mysql_config['mysql']['host']
 DB_USER = mysql_config['mysql']['user']

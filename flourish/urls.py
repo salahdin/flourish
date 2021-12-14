@@ -95,6 +95,9 @@ urlpatterns = [
     path('edc_subject_dashboard/', include('edc_subject_dashboard.urls')),
     path('edc_visit_schedule/', include('edc_visit_schedule.urls')),
 
+    path('eventcalendar/', include('eventcalendar.urls')),
+    path('', include("calendarapp.urls")),
+
     path('subject/', include('flourish_dashboard.urls')),
 
     path('home/', HomeView.as_view(), name='home_url'),

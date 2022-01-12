@@ -89,6 +89,11 @@ INSTALLED_APPS = [
     'edc_visit_schedule.apps.AppConfig',
     'edc_call_manager.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
+    
+    'eventcalendar.apps.AppConfig',
+    "calendarapp.apps.CalendarappConfig",
+    # "accounts.apps.AccountsConfig",
+
     'flourish_export.apps.AppConfig',
     'flourish_dashboard.apps.AppConfig',
     'flourish_prn.apps.AppConfig',

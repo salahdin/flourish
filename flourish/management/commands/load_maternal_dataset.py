@@ -28,14 +28,14 @@ class Command(BaseCommand):
             options.update(study_maternal_identifier=data_item.get('m_bid'))
             # Convert date to date objects
             try:
-                mom_enrolldate = parser.parse(options.get('mom_enrolldate')).date()
+                mom_enrolldate = parser.parse(options.get('mom_enrolldate') or '').date()
             except parser.ParserError:
                 options.update(mom_enrolldate=None)
             else:
                 options.update(mom_enrolldate=mom_enrolldate)
 
             try:
-                mom_arvstart_date = parser.parse(options.get('mom_arvstart_date')).date()
+                mom_arvstart_date = parser.parse(options.get('mom_arvstart_date') or '').date()
             except parser.ParserError:
                 options.update(mom_arvstart_date=None)
             else:
@@ -49,7 +49,7 @@ class Command(BaseCommand):
                 options.update(mom_baseline_hgbdt=mom_baseline_hgbdt)
 
             try:
-                delivdt = parser.parse(options.get('delivdt')).date()
+                delivdt = parser.parse(options.get('delivdt') or '').date()
             except parser.ParserError:
                 options.update(delivdt=None)
             else:
@@ -63,14 +63,14 @@ class Command(BaseCommand):
                 options.update(mom_deathdate=mom_deathdate)
 
             try:
-                mom_baseline_cd4date = parser.parse(options.get('mom_baseline_cd4date'))
+                mom_baseline_cd4date = parser.parse(options.get('mom_baseline_cd4date') or '')
             except parser.ParserError:
                 options.update(mom_baseline_cd4date=None)
             else:
                 options.update(mom_baseline_cd4date=mom_baseline_cd4date)
 
             try:
-                mom_baseline_vldate = parser.parse(options.get('mom_baseline_vldate'))
+                mom_baseline_vldate = parser.parse(options.get('mom_baseline_vldate') or '')
             except parser.ParserError:
                 options.update(mom_baseline_vldate=None)
             else:
@@ -99,48 +99,48 @@ class Command(BaseCommand):
                 options.update(gravida=gravida)
 
             try:
-                mom_baseline_cd4 = int(options.get('mom_baseline_cd4'))
+                mom_baseline_cd4 = int(options.get('mom_baseline_cd4') or '')
             except ValueError:
                 options.update(mom_baseline_cd4=None)
             else:
                 options.update(mom_baseline_cd4=mom_baseline_cd4)
 
             try:
-                mom_baseline_vl = int(options.get('mom_baseline_vl'))
+                mom_baseline_vl = int(options.get('mom_baseline_vl') or '')
             except ValueError:
                 options.update(mom_baseline_vl=None)
             else:
                 options.update(mom_baseline_vl=mom_baseline_vl)
 
             try:
-                twin_triplet = int(options.get('twin_triplet'))
+                twin_triplet = int(options.get('twin_triplet') or '')
             except ValueError:
                 options.update(twin_triplet=None)
             else:
                 options.update(twin_triplet=twin_triplet)
 
             try:
-                preg_dtg = int(options.get('preg_dtg'))
+                preg_dtg = int(options.get('preg_dtg') or '')
             except ValueError:
                 options.update(preg_dtg=None)
             else:
                 options.update(preg_dtg=preg_dtg)
 
             try:
-                preg_pi = int(options.get('preg_pi'))
+                preg_pi = int(options.get('preg_pi') or '')
             except ValueError:
                 options.update(preg_pi=None)
             else:
                 options.update(preg_pi=preg_pi)
 
             try:
-                preg_efv = int(options.get('preg_efv'))
+                preg_efv = int(options.get('preg_efv') or '')
             except ValueError:
                 options.update(preg_efv=None)
             else:
                 options.update(preg_efv=preg_efv)
 
-                    # Convert decimal values to decimal objects
+            # Convert decimal values to decimal objects
             if options.get('mom_baseline_hgb') and not options.get('mom_baseline_hgb') == '.':
                 mom_baseline_hgb = Decimal(options.get('mom_baseline_hgb'))
                 options.update(mom_baseline_hgb=mom_baseline_hgb)

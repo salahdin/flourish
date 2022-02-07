@@ -4,8 +4,8 @@ from django.views.generic import TemplateView
 from edc_base.view_mixins import EdcBaseViewMixin
 from edc_navbar import NavbarViewMixin
 from flourish_caregiver.models import *
-from flourish_caregiver.models import SubjectConsent
-
+from flourish_caregiver.models import *
+from flourish_prn.models import *
 
 class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
 
@@ -48,6 +48,19 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
             screening_identifier__in=metadataset_pids).values_list('subject_identifier').distinct().count()
 
         return subject_consents
+
+    @property
+    def total_preg_onstudy(self):
+        """
+        Pregnant Women Onstudy
+        """
+        caregiver_offstudy_pids = CaregiverOffStudy.objects.values_list(
+            'subject_identifier')
+        pregnent_women_onstudy = AntenatalEnrollment.objects.exclude(
+            subject_identifier__in=caregiver_offstudy_pids).values_list('subject_identifier').count()
+
+        return pregnent_women_onstudy
+
 
 
 

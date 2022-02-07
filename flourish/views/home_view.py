@@ -75,6 +75,22 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
 
         return pregnent_women_offstudy
 
+    @property    
+    def total_maternal_delivery(self):
+        """
+        Women who gave birth while on study 
+        """
+
+
+        pregnant_women_pids = AntenatalEnrollment.objects.values_list(
+            'subject_identifier').distinct()
+
+        maternal_deliveries = MaternalDelivery.objects.filter(subject_identifier__in=pregnant_women_pids).values_list(
+            'subject_identifier').values_list('subject_identifier').distinct().count()
+
+        return maternal_deliveries
+
+
 
 
 

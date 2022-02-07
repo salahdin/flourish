@@ -61,6 +61,21 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
 
         return pregnent_women_onstudy
 
+    @property
+    def total_preg_offstudy(self):
+        """
+        Pregnant Women Offstudy
+        """
+
+        pregnant_women_pids = AntenatalEnrollment.objects.values_list(
+            'subject_identifier').distinct()
+
+        pregnent_women_offstudy = CaregiverOffStudy.objects.filter(
+            subject_identifier__in=pregnant_women_pids).values_list('subject_identifier').distinct().count()
+
+        return pregnent_women_offstudy
+
+
 
 
 

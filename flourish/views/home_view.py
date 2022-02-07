@@ -1,8 +1,9 @@
+import imp
 from django.apps import apps as django_apps
 from django.views.generic import TemplateView
 from edc_base.view_mixins import EdcBaseViewMixin
 from edc_navbar import NavbarViewMixin
-
+from flourish_caregiver.models import *
 from flourish_caregiver.models import SubjectConsent
 
 
@@ -34,6 +35,21 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
         continued_consent_cls = django_apps.get_model(
             'flourish_child.childcontinuedconsent')
         return continued_consent_cls.objects.count()
+
+    @property
+    def total_caregiver_prev_study(self):
+        """
+        Caregiver From Metadataset
+        """
+
+        metadataset_pids = MaternalDataset.objects.values_list(
+            'screening_identifier', flat=True).distinct()
+        subject_consents = SubjectConsent.objects.filter(
+            screening_identifier__in=metadataset_pids).values_list('subject_identifier').distinct().count()
+
+        return subject_consents
+
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -13,8 +13,8 @@ flourish.append_item(
 
 flourish.append_item(
     NavbarItem(
-        name='maternal_screening',
-        label='Maternal Screening',
+        name='anc_screening',
+        label='ANC Screening',
         fa_icon='far fa-user-circle',
         url_name=settings.DASHBOARD_URL_NAMES.get('maternal_screening_listboard_url')))
 

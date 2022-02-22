@@ -1,10 +1,7 @@
-import imp
 from django.apps import apps as django_apps
 from django.views.generic import TemplateView
 from edc_base.view_mixins import EdcBaseViewMixin
 from edc_navbar import NavbarViewMixin
-# from flourish_caregiver.models import *
-from flourish_prn.models import *
 from django.db.models import Q
 
 

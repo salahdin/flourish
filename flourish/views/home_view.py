@@ -6,9 +6,10 @@ from edc_navbar import NavbarViewMixin
 from flourish_caregiver.models import *
 from flourish_caregiver.models import *
 from flourish_prn.models import *
+from django.db.models import Q
+
 
 class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
-
     template_name = 'flourish/home.html'
     navbar_name = 'flourish'
     navbar_selected_item = 'home'
@@ -39,61 +40,76 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
     @property
     def total_caregiver_prev_study(self):
         """
-        Caregiver From Metadataset
+        Caregivers from previous BHP studies Currently on-Study
         """
+        metadataset_screening_identifier = MaternalDataset.objects.values_list('screening_identifier',
+                                                                               flat=True).distinct()
+        caregiver_offstudy_subject_identifier = CaregiverOffStudy.objects.values_list('subject_identifier', flat=True)
 
-        metadataset_pids = MaternalDataset.objects.values_list(
-            'screening_identifier', flat=True).distinct()
         subject_consents = SubjectConsent.objects.filter(
-            screening_identifier__in=metadataset_pids).values_list('subject_identifier').distinct().count()
-
+            Q(screening_identifier__in=metadataset_screening_identifier) & ~Q(
+                subject_identifier__in=caregiver_offstudy_subject_identifier)).values_list(
+            'subject_identifier').distinct().count()
         return subject_consents
 
     @property
-    def total_preg_onstudy(self):
+    def total_child_prev(self):
         """
-        Pregnant Women Onstudy
+        Children from previous BHP studies Currently on-Study
         """
-        caregiver_offstudy_pids = CaregiverOffStudy.objects.values_list(
-            'subject_identifier')
-        pregnent_women_onstudy = AntenatalEnrollment.objects.exclude(
-            subject_identifier__in=caregiver_offstudy_pids).values_list('subject_identifier').count()
 
-        return pregnent_women_onstudy
+        child_offstudy_subject_identifiers = ChildOffStudy.objects.values_list('subject_identifier', flat=True)
+
+        # children from previous study
+
+        total_children = CaregiverChildConsent.objects.filter(Q(study_child_identifier__isnull=False) & ~Q(
+            subject_identifier__in=child_offstudy_subject_identifiers)).count()
+        return total_children
 
     @property
-    def total_preg_offstudy(self):
+    def total_all_preg_women(self):
         """
-        Pregnant Women Offstudy
+        All women who consented when pregnant (on and off study)
+        """
+        return AntenatalEnrollment.objects.count()
+
+    @property
+    def total_consented_pregnant_women(self):
+        """
+        All women who consented when pregnant – Currently ON- study
         """
 
-        pregnant_women_pids = AntenatalEnrollment.objects.values_list(
-            'subject_identifier').distinct()
+        maternal_offstudy_subject_identifiers = CaregiverOffStudy.objects.values_list('subject_identifier',
+                                                                                      flat=True).distinct()
+        all_consented_women = AntenatalEnrollment.objects.exclude(
+            subject_identifier__in=maternal_offstudy_subject_identifiers).count()
+        return all_consented_women
 
-        pregnent_women_offstudy = CaregiverOffStudy.objects.filter(
-            subject_identifier__in=pregnant_women_pids).values_list('subject_identifier').distinct().count()
+    @property
+    def total_currently_pregnant_women(self):
+        """
+        Currently Pregnant Women On-Study
+        """
 
-        return pregnent_women_offstudy
+        maternal_offstudy_subject_identifiers = CaregiverOffStudy.objects.values_list('subject_identifier',
+                                                                                      flat=True).distinct()
 
-    @property    
+        maternal_delivery_subject_identifiers = MaternalDelivery.objects.values_list('subject_identifier',
+                                                                                     flat=True).distinct()
+
+        currently_preg = AntenatalEnrollment.objects.exclude(
+            Q(subject_identifier__in=maternal_offstudy_subject_identifiers) |
+            Q(subject_identifier__in=maternal_delivery_subject_identifiers)).count()
+
+        return currently_preg
+
+    @property
     def total_maternal_delivery(self):
         """
-        Women who gave birth while on study 
+        Newly recruited (not from previous BHP studies) women enrolled in pregnancy who gave birth who are currently On-Study
         """
 
-
-        pregnant_women_pids = AntenatalEnrollment.objects.values_list(
-            'subject_identifier').distinct()
-
-        maternal_deliveries = MaternalDelivery.objects.filter(subject_identifier__in=pregnant_women_pids).values_list(
-            'subject_identifier').values_list('subject_identifier').distinct().count()
-
-        return maternal_deliveries
-
-
-
-
-
+        return MaternalDelivery.objects.count()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -102,5 +118,12 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
             flourish_consents=self.total_flourish_consents,
             flourish_assents=self.total_child_assents,
             child_consents=self.total_child_consents,
-            continued_consents=self.total_continued_consents)
+            continued_consents=self.total_continued_consents,
+            total_caregiver_prev_study=self.total_caregiver_prev_study,
+            total_child_prev=self.total_child_prev,
+            total_all_preg_women=self.total_all_preg_women,
+            total_consented_pregnant_women=self.total_consented_pregnant_women,
+            total_currently_pregnant_women=self.total_currently_pregnant_women,
+            total_maternal_delivery=self.total_maternal_delivery
+        )
         return context

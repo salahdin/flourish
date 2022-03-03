@@ -52,3 +52,5 @@ django-crispy-forms
 django-multiselectfield
 notebook
 pandas
+matplotlib
+flexitext

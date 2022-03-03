@@ -57,3 +57,5 @@ celery
 django-crispy-forms
 django-multiselectfield
 xlwt
+matplotlib
+flexitext

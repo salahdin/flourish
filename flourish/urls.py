@@ -102,6 +102,8 @@ urlpatterns = [
 
     path('home/', HomeView.as_view(), name='home_url'),
     path('', HomeView.as_view(), name='home_url'),
+    path('calendar/', include('flourish_calendar.urls')),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

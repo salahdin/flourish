@@ -115,6 +115,7 @@ INSTALLED_APPS = [
     'flourish.apps.EdcTimepointAppConfig',
     'pre_flourish.apps.AppConfig',
     'flourish.apps.AppConfig',
+    'flourish_calendar',
 ]
 
 MIDDLEWARE = [

@@ -49,6 +49,7 @@ git+https://github.com/flourishbhp/pre-flourish.git@develop#egg=pre_flourish
 git+https://github.com/flourishbhp/flourish-reference@develop#egg=flourish_reference
 git+https://github.com/flourishbhp/flourish-metadata-rules@develop#egg=flourish_metadata_rules
 git+https://github.com/flourishbhp/flourish-labs@develop#egg=flourish_labs
+git+https://github.com/geek911/flourish-calendar@develop#egg=flourish_calendar # TODO: replace with flourish repo the moment the flourish is created
 django-q
 pandas
 jupyter

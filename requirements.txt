@@ -10,7 +10,7 @@ git+https://github.com/botswana-harvard/edc-consent.git@develop#egg=edc_consent
 git+https://github.com/botswana-harvard/edc-dashboard.git@develop#egg=edc_dashboard
 git+https://github.com/botswana-harvard/edc-data-manager.git@0.1.5#egg=edc-data-manager
 git+https://github.com/botswana-harvard/edc-device.git@develop#egg=edc_device
-git+https://github.com/botswana-harvard/edc-document-archieve-api.git@develop#egg=edc_document_archive
+git+https://github.com/botswana-harvard/edc-document-archieve-api.git@develop
 git+https://github.com/botswana-harvard/edc-facility.git@develop#egg=edc_facility
 git+https://github.com/botswana-harvard/edc-fieldsets.git@develop#egg=edc_fieldsets
 git+https://github.com/botswana-harvard/edc-form-validators.git@develop#egg=edc_form_validators

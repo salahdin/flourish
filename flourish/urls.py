@@ -102,6 +102,7 @@ urlpatterns = [
 
     path('home/', HomeView.as_view(), name='home_url'),
     path('', HomeView.as_view(), name='home_url'),
+    path('edc_da_api/', include('edc_document_archieve.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

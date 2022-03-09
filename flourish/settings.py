@@ -117,6 +117,9 @@ INSTALLED_APPS = [
     'flourish.apps.EdcTimepointAppConfig',
     'pre_flourish.apps.AppConfig',
     'flourish.apps.AppConfig',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'edc_document_archieve.apps.AppConfig',
 ]
 
 MIDDLEWARE = [

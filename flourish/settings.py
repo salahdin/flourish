@@ -59,7 +59,6 @@ config = configparser.ConfigParser()
 config.read(CONFIG_PATH)
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -74,7 +73,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'multiselectfield',
     'edc_action_item.apps.AppConfig',
-    'edc_calendar.apps.AppConfig',
     'edc_consent.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
@@ -89,11 +87,7 @@ INSTALLED_APPS = [
     'edc_visit_schedule.apps.AppConfig',
     'edc_call_manager.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
-    
-    'eventcalendar.apps.AppConfig',
-    "calendarapp.apps.CalendarappConfig",
     # "accounts.apps.AccountsConfig",
-
     'flourish_export.apps.AppConfig',
     'flourish_dashboard.apps.AppConfig',
     'flourish_prn.apps.AppConfig',
@@ -116,6 +110,7 @@ INSTALLED_APPS = [
     'flourish.apps.EdcVisitTrackingAppConfig',
     'flourish.apps.EdcTimepointAppConfig',
     'pre_flourish.apps.AppConfig',
+    'flourish_calendar.apps.AppConfig',
     'flourish.apps.AppConfig',
     'rest_framework',
     'rest_framework.authtoken',

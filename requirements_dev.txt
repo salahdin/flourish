@@ -54,3 +54,5 @@ django-multiselectfield
 notebook
 pandas
 djangorestframework
+matplotlib
+flexitext

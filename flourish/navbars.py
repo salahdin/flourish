@@ -13,8 +13,8 @@ flourish.append_item(
 
 flourish.append_item(
     NavbarItem(
-        name='maternal_screening',
-        label='Maternal Screening',
+        name='anc_screening',
+        label='ANC Screening',
         fa_icon='far fa-user-circle',
         url_name=settings.DASHBOARD_URL_NAMES.get('maternal_screening_listboard_url')))
 
@@ -48,11 +48,11 @@ flourish.append_item(
         fa_icon='fa fa-database',
         url_name='flourish_export:home_url'))
 
-# flourish.append_item(
-    # NavbarItem(
-        # name='dashboard',
-        # label='Calendar',
-        # fa_icon='fa fa-calendar',
-        # url_name='eventcalendar:dashboard'))
+flourish.append_item(
+    NavbarItem(
+        name='calendar',
+        label='Calendar',
+        fa_icon='fa fa-calendar',
+        url_name='flourish_calendar:calendar'))
 
 site_navbars.register(flourish)

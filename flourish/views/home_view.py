@@ -1,8 +1,8 @@
 from django.apps import apps as django_apps
+from django.db.models import Q
 from django.views.generic import TemplateView
 from edc_base.view_mixins import EdcBaseViewMixin
 from edc_navbar import NavbarViewMixin
-from django.db.models import Q
 
 
 class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
@@ -80,9 +80,11 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
         """
         Caregivers from previous BHP studies Currently on-Study
         """
-        metadataset_screening_identifier = self.maternal_dataset_cls.objects.values_list('screening_identifier',
-                                                                                         flat=True).distinct()
-        caregiver_offstudy_subject_identifier = self.caregiver_offstudy_cls.objects.values_list('subject_identifier', flat=True)
+        metadataset_screening_identifier = self.maternal_dataset_cls.objects.values_list(
+            'screening_identifier', flat=True).distinct()
+
+        caregiver_offstudy_subject_identifier = self.caregiver_offstudy_cls.objects.values_list(
+            'subject_identifier', flat=True)
 
         subject_consents = self.subject_consent_cls.objects.filter(
             Q(screening_identifier__in=metadataset_screening_identifier) & ~Q(
@@ -95,10 +97,12 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
         """
         Children from previous BHP studies Currently on-Study
         """
-        child_offstudy_subject_identifiers = self.child_offstudy_cls.objects.values_list('subject_identifier',
-                                                                                         flat=True)
-        total_children = self.caregiver_child_consent_cls.objects.filter(Q(study_child_identifier__isnull=False) & ~Q(
-            subject_identifier__in=child_offstudy_subject_identifiers)).count()
+        child_offstudy_subject_identifiers = self.child_offstudy_cls.objects.values_list(
+            'subject_identifier', flat=True)
+
+        total_children = self.caregiver_child_consent_cls.objects.filter(
+            Q(study_child_identifier__isnull=False) & ~Q(
+                subject_identifier__in=child_offstudy_subject_identifiers)).count()
         return total_children
 
     @property
@@ -114,8 +118,9 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
         All women who consented when pregnant – Currently ON- study
         """
 
-        maternal_offstudy_subject_identifiers = self.caregiver_offstudy_cls.objects.values_list('subject_identifier',
-                                                                                      flat=True).distinct()
+        maternal_offstudy_subject_identifiers = self.caregiver_offstudy_cls.objects.values_list(
+            'subject_identifier', flat=True).distinct()
+
         all_consented_women = self.antenatal_enrollment_cls.objects.exclude(
             subject_identifier__in=maternal_offstudy_subject_identifiers).count()
         return all_consented_women
@@ -126,11 +131,11 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
         Currently Pregnant Women On-Study
         """
 
-        maternal_offstudy_subject_identifiers = self.caregiver_offstudy_cls.objects.values_list('subject_identifier',
-                                                                                      flat=True).distinct()
+        maternal_offstudy_subject_identifiers = self.caregiver_offstudy_cls.objects.values_list(
+            'subject_identifier', flat=True).distinct()
 
-        maternal_delivery_subject_identifiers = self.maternal_delivery_cls.objects.values_list('subject_identifier',
-                                                                                               flat=True).distinct()
+        maternal_delivery_subject_identifiers = self.maternal_delivery_cls.objects.values_list(
+            'subject_identifier', flat=True).distinct()
 
         currently_preg = self.antenatal_enrollment_cls.objects.exclude(
             Q(subject_identifier__in=maternal_offstudy_subject_identifiers) |
@@ -141,7 +146,8 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
     @property
     def total_maternal_delivery(self):
         """
-        Newly recruited (not from previous BHP studies) women enrolled in pregnancy who gave birth who are currently On-Study
+        Newly recruited (not from previous BHP studies) women enrolled in pregnancy who
+         gave birth who are currently On-Study
         """
 
         return self.maternal_delivery_cls.objects.count()

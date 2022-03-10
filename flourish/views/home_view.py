@@ -80,14 +80,9 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
         """
         Caregivers from previous BHP studies Currently on-Study
         """
-<<<<<<< HEAD
         metadataset_screening_identifier = self.maternal_dataset_cls.objects.values_list(
             'screening_identifier', flat=True).distinct()
 
-=======
-        metadataset_screening_identifier = self.maternal_dataset_cls.objects.values_list('screening_identifier',
-                                                                                         flat=True).distinct()
->>>>>>> e47e2a38173520f92650992dcd93a1926882a6e9
         caregiver_offstudy_subject_identifier = self.caregiver_offstudy_cls.objects.values_list(
             'subject_identifier', flat=True)
 
@@ -102,19 +97,13 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
         """
         Children from previous BHP studies Currently on-Study
         """
-<<<<<<< HEAD
         child_offstudy_subject_identifiers = self.child_offstudy_cls.objects.values_list(
-            'subject_identifier', flat=True)
+            'subject_identifier', flat=True).distinct()
 
         total_children = self.caregiver_child_consent_cls.objects.filter(
             Q(study_child_identifier__isnull=False) & ~Q(
                 subject_identifier__in=child_offstudy_subject_identifiers)).count()
-=======
-        child_offstudy_subject_identifiers = self.child_offstudy_cls.objects.values_list('subject_identifier',
-                                                                                         flat=True).distinct()
-        total_children = self.caregiver_child_consent_cls.objects.filter(Q(study_child_identifier__isnull=False) & ~Q(
-            subject_identifier__in=child_offstudy_subject_identifiers)).count()
->>>>>>> e47e2a38173520f92650992dcd93a1926882a6e9
+
         return total_children
 
     @property
@@ -122,7 +111,9 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
         """
         All women who consented when pregnant (on and off study)
         """
-        return self.antenatal_enrollment_cls.objects.values_list('subject_identifier').distinct().count()
+
+        return self.antenatal_enrollment_cls.objects.values_list(
+            'subject_identifier').distinct().count()
 
     @property
     def total_consented_pregnant_women(self):

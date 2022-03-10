@@ -259,6 +259,7 @@ DASHBOARD_URL_NAMES = {
     'subject_dashboard_url': 'flourish_dashboard:subject_dashboard_url',
     'odk_listboard_url': 'edc_odk:odk_listboard_url',
     'export_listboard_url': 'flourish_export:export_listboard_url',
+    'flourish_calendar_url': 'flourish_calendar:calendar'
 }
 
 DASHBOARD_BASE_TEMPLATES = {

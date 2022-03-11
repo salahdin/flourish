@@ -48,11 +48,11 @@ flourish.append_item(
         fa_icon='fa fa-database',
         url_name='flourish_export:home_url'))
 
-# flourish.append_item(
-    # NavbarItem(
-        # name='dashboard',
-        # label='Calendar',
-        # fa_icon='fa fa-calendar',
-        # url_name='eventcalendar:dashboard'))
+flourish.append_item(
+    NavbarItem(
+        name='calendar',
+        label='Calendar',
+        fa_icon='fa fa-calendar',
+        url_name='flourish_calendar:calendar'))
 
 site_navbars.register(flourish)

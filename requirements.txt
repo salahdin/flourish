@@ -48,8 +48,10 @@ git+https://github.com/flourishbhp/flourish-prn.git@develop#egg=flourish_prn
 git+https://github.com/flourishbhp/flourish-export.git@develop#egg=flourish_export
 git+https://github.com/flourishbhp/pre-flourish.git@develop#egg=pre_flourish
 git+https://github.com/flourishbhp/flourish-reference@develop#egg=flourish_reference
+git+https://github.com:flourishbhp/flourish-labs@develop#egg=flourish_labs
 git+https://github.com/flourishbhp/flourish-metadata-rules@develop#egg=flourish_metadata_rules
 git+https://github.com/flourishbhp/flourish-labs@develop#egg=flourish_labs
+git+https://github.com/botswana-harvard/event-calendar@develop#egg=event_calendar
 git+https://github.com/flourishbhp/flourish-calendar@develop#egg=flourish_calendar
 django-q
 pandas

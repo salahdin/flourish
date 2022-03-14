@@ -103,6 +103,7 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
         total_children = self.caregiver_child_consent_cls.objects.filter(
             Q(study_child_identifier__isnull=False) & ~Q(
                 subject_identifier__in=child_offstudy_subject_identifiers)).count()
+
         return total_children
 
     @property
@@ -110,6 +111,7 @@ class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
         """
         All women who consented when pregnant (on and off study)
         """
+
         return self.antenatal_enrollment_cls.objects.values_list(
             'subject_identifier').distinct().count()
 

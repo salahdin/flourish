@@ -297,3 +297,8 @@ COUNTRY = 'botswana'
 
 PARENT_REFERENCE_MODEL1 = ''
 PARENT_REFERENCE_MODEL2 = ''
+
+# Date and time format
+SHORT_DATE_FORMAT = 'Y-m-d'
+SHORT_DATETIME_FORMAT = 'Y-m-d h:m'
+DATE_FORMAT = 'Y-m-d'

@@ -109,6 +109,7 @@ INSTALLED_APPS = [
     'flourish.apps.EdcProtocolAppConfig',
     'flourish.apps.EdcVisitTrackingAppConfig',
     'flourish.apps.EdcTimepointAppConfig',
+    'flourish.apps.EdcSenaiteInterfaceAppConfig',
     'pre_flourish.apps.AppConfig',
     'flourish_calendar.apps.AppConfig',
     'flourish.apps.AppConfig',
@@ -236,6 +237,9 @@ USE_I18N = True
 USE_L10N = False
 
 USE_TZ = True
+
+DEVICE_ID = config['edc_device'].get('device_id', '99')
+DEVICE_ROLE = config['edc_device'].get('role')
 
 CELLPHONE_REGEX = '^[7]{1}[12345678]{1}[0-9]{6}$'
 TELEPHONE_REGEX = '^[2-8]{1}[0-9]{6}$'

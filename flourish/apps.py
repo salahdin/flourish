@@ -14,6 +14,7 @@ from edc_locator.apps import AppConfig as BaseEdcLocatorAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_odk.apps import AppConfig as BaseEdcOdkAppConfig
+from edc_senaite_interface.apps import AppConfig as BaseEdcSenaiteInterfaceAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_timepoint.timepoint import Timepoint
 from edc_timepoint.timepoint_collection import TimepointCollection
@@ -139,3 +140,27 @@ class EdcOdkAppConfig(BaseEdcOdkAppConfig):
     clinician_notes_models = {
         'flourish_child': 'childcliniciannotes',
         'flourish_caregiver': 'cliniciannotes'}
+
+
+class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
+    host = "https://lims-test.bhp.org.bw"
+    client = "Flourish"
+    courier = ""
+    sample_type_match = {'viral_load': 'Whole Blood EDTA',
+                         'cd4': 'Whole Blood EDTA',
+                         'hematology': 'Whole Blood EDTA',
+                         'complete_blood_count': 'Whole Blood EDTA',
+                         'dna_pcr': 'Dry Blood Spot',
+                         'stool_sample': 'Stool'}
+    container_type_match = {'viral_load': 'EDTA tube',
+                            'cd4': 'EDTA tube',
+                            'hematology': 'EDTA tube',
+                            'complete_blood_count': 'EDTA Tube',
+                            'dna_pcr': 'Filter paper',
+                            'stool_sample': 'Cryogenic Vial'}
+    template_match = {'viral_load': 'HIV RNA PCR',
+                      'cd4': 'CD4/CD8',
+                      'hematology': 'CBC',
+                      'complete_blood_count': 'CBC',
+                      'dna_pcr': 'HIV DNA PCR',
+                      'stool_sample': 'Stool Storage'}

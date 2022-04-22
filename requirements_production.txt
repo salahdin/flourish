@@ -47,7 +47,6 @@ git+https://github.com/flourishbhp/flourish-prn.git@0.1.9#egg=flourish-prn
 git+https://github.com/flourishbhp/flourish-export.git@0.1.3#egg=flourish-export
 git+https://github.com/flourishbhp/pre-flourish.git@0.1.4#egg=pre-flourish
 git+https://github.com/flourishbhp/flourish-reference@0.1.5#egg=flourish-reference
-git+https://github.com:flourishbhp/flourish-labs@0.1.2#egg=flourish-labs
 git+https://github.com/flourishbhp/flourish-metadata-rules@0.1.21#egg=flourish-metadata-rules
 git+https://github.com/flourishbhp/flourish-labs@0.1.2#egg=flourish-labs
 git+https://github.com/flourishbhp/flourish-calendar@0.1.3#egg=flourish-calendar

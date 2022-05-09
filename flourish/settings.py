@@ -109,6 +109,7 @@ INSTALLED_APPS = [
     'flourish.apps.EdcProtocolAppConfig',
     'flourish.apps.EdcVisitTrackingAppConfig',
     'flourish.apps.EdcTimepointAppConfig',
+    'flourish.apps.EdcSenaiteInterfaceAppConfig',
     'pre_flourish.apps.AppConfig',
     'flourish_calendar.apps.AppConfig',
     'flourish.apps.AppConfig',
@@ -237,6 +238,9 @@ USE_L10N = False
 
 USE_TZ = True
 
+DEVICE_ID = config['edc_device'].get('device_id', '99')
+DEVICE_ROLE = config['edc_device'].get('role')
+
 CELLPHONE_REGEX = '^[7]{1}[12345678]{1}[0-9]{6}$'
 TELEPHONE_REGEX = '^[2-8]{1}[0-9]{6}$'
 
@@ -252,6 +256,7 @@ DASHBOARD_URL_NAMES = {
     'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
     'maternal_screening_listboard_url': 'flourish_dashboard:maternal_screening_listboard_url',
     'maternal_dataset_listboard_url': 'flourish_dashboard:maternal_dataset_listboard_url',
+    'pre_flourish_maternal_dataset_listboard_url': 'pre_flourish:pre_flourish_maternal_dataset_listboard_url',
     'flourish_follow_listboard_url': 'flourish_follow:flourish_follow_listboard_url',
     'flourish_follow_appt_listboard_url': 'flourish_follow:flourish_follow_appt_listboard_url',
     'flourish_follow_booking_listboard_url': 'flourish_follow:flourish_follow_booking_listboard_url',
@@ -261,6 +266,7 @@ DASHBOARD_URL_NAMES = {
     'export_listboard_url': 'flourish_export:export_listboard_url',
     'flourish_calendar_url': 'flourish_calendar:calendar'
 }
+
 
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'flourish/base.html',
@@ -272,6 +278,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'data_manager_listboard_template': 'edc_data_manager/listboard.html',
     'maternal_screening_listboard_template': 'flourish_dashboard/screening/maternal_listboard.html',
     'maternal_dataset_listboard_template': 'flourish_dashboard/maternal_dataset/maternal_listboard.html',
+    'pre_flourish_maternal_dataset_listboard_template': 'pre_flourish/maternal_dataset_listboard.html',
     'flourish_follow_listboard_template': 'flourish_follow/follow_listboard.html',
     'flourish_follow_appt_listboard_template': 'flourish_follow/appointments_windows_listboards.html',
     'flourish_follow_booking_listboard_template': 'flourish_follow/bookings_listboard.html',
@@ -283,7 +290,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'child_screening_listboard_template': 'flourish_dashboard/child_subject/screening_listboard.html',
     'odk_listboard_template': 'edc_odk/odk_forms/listboard.html',
     'export_listboard_template': 'flourish_export/listboard.html',
-    }
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/

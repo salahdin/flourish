@@ -39,7 +39,7 @@ flourish.append_item(
         title='Reports',
         label='Reports',
         fa_icon='fa-user-plus',
-        url_name='flourish_reports:recruitment_report_url'))
+        url_name='flourish_reports:download_report_url'))
 
 flourish.append_item(
     NavbarItem(

@@ -26,5 +26,9 @@ app.conf.beat_schedule = {
     "schedule-odk-data-pull": {
         "task": "edc_odk.tasks.pull_all_data_from_odkcentral",
         "schedule": crontab(minute="*", day_of_week='*')
+    },
+    "schedule-load-previous-study-data": {
+        "task": "flourish_reports.tasks.populate_study_data",
+        "schedule": crontab(hour='5,13', minute=0, day_of_week='mon-fri')
     }
 }

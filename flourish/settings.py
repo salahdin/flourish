@@ -49,7 +49,7 @@ DEBUG = True
 # KEY_PATH = os.path.join(BASE_DIR, 'crypto_fields')
 # KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'flourish.bhp.org.bw']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'flourish.bhp.org.bw', '10.113.201.239', '192.168.8.102']
 
 CONFIG_FILE = f'{APP_NAME}.ini'
 
@@ -115,7 +115,6 @@ INSTALLED_APPS = [
     'flourish.apps.AppConfig',
     'rest_framework',
     'rest_framework.authtoken',
-    'edc_document_archieve.apps.AppConfig',
 ]
 
 MIDDLEWARE = [
@@ -129,6 +128,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'edc_dashboard.middleware.DashboardMiddleware',
     'edc_subject_dashboard.middleware.DashboardMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'flourish.urls'

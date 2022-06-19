@@ -1,8 +1,8 @@
-from pprint import pprint
 from decimal import Decimal
-from dateutil import parser
 import decimal
+from pprint import pprint
 
+from dateutil import parser
 from django.core.management.base import BaseCommand
 
 from flourish_child.models import ChildDataset
@@ -40,7 +40,7 @@ class Command(BaseCommand):
                 options.update(dob=dob)
 
             try:
-                infant_enrolldate = parser.parse(options.get('infant_enrolldate')).date()
+                infant_enrolldate = parser.parse(options.get('infant_enrolldate') or '').date()
             except parser.ParserError:
                 options.update(infant_enrolldate=None)
             else:
@@ -57,7 +57,7 @@ class Command(BaseCommand):
                 options.update(infant_randdt=infant_randdt)
 
             try:
-                infant_azt_startdate = parser.parse(options.get('infant_azt_startdate')).date()
+                infant_azt_startdate = parser.parse(options.get('infant_azt_startdate') or '').date()
             except parser.ParserError:
                 options.update(infant_azt_startdate=None)
             else:
@@ -306,6 +306,7 @@ class Command(BaseCommand):
                 print(e)
 
             try:
+                import pdb; pdb.set_trace()
                 data_set = ChildDataset.objects.get(
                     study_child_identifier=data_item.get('bid'))
 

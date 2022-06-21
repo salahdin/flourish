@@ -70,7 +70,7 @@ module.exports = function(XRegExp) {
      * @memberOf XRegExp
      * @param {String} pattern XRegExp pattern using `{{name}}` for embedded subpatterns. Allows
      *   `({{name}})` as shorthand for `(?<name>{{name}})`. Patterns cannot be embedded within
-     *   character classes.
+     *   character helpers.
      * @param {Object} subs Lookup object for named subpatterns. Values can be strings or regexes. A
      *   leading `^` and trailing unescaped `$` are stripped from subpatterns, if both are present.
      * @param {String} [flags] Any combination of XRegExp flags.
@@ -527,7 +527,7 @@ module.exports = function(XRegExp) {
             var ERR_UNKNOWN_NAME = 'Unknown Unicode token ';
             var ERR_UNKNOWN_REF = 'Unicode token missing data ';
             var ERR_ASTRAL_ONLY = 'Astral mode required for Unicode token ';
-            var ERR_ASTRAL_IN_CLASS = 'Astral mode does not support Unicode tokens within character classes';
+            var ERR_ASTRAL_IN_CLASS = 'Astral mode does not support Unicode tokens within character helpers';
             // Negated via \P{..} or \p{^..}
             var isNegated = match[1] === 'P' || !!match[2];
             // Switch from BMP (0-FFFF) to astral (0-10FFFF) mode via flag A
@@ -591,7 +591,7 @@ module.exports = function(XRegExp) {
      *   `astral` data should be a combination of literal characters and `\xHH` or `\uHHHH` escape
      *   sequences, with hyphens to create ranges. Any regex metacharacters in the data should be
      *   escaped, apart from range-creating hyphens. The `astral` data can additionally use
-     *   character classes and alternation, and should use surrogate pairs to represent astral code
+     *   character helpers and alternation, and should use surrogate pairs to represent astral code
      *   points. `inverseOf` can be used to avoid duplicating character data if a Unicode token is
      *   defined as the exact inverse of another token.
      * @example
@@ -3448,7 +3448,7 @@ XRegExp._pad4 = pad4;
  *
  * // Add the U (ungreedy) flag from PCRE and RE2, which reverses greedy and lazy quantifiers.
  * // Since `scope` is not specified, it uses 'default' (i.e., transformations apply outside of
- * // character classes only)
+ * // character helpers only)
  * XRegExp.addToken(
  *   /([?*+]|{\d+(?:,\d*)?})(\??)/,
  *   function(match) {return match[1] + (match[2] ? '' : '?');},

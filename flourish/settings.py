@@ -94,6 +94,7 @@ INSTALLED_APPS = [
     'flourish_caregiver.apps.AppConfig',
     'flourish_child.apps.AppConfig',
     'flourish_follow.apps.AppConfig',
+    'pre_flourish_follow.apps.AppConfig',
     'flourish_reports.apps.AppConfig',
     'flourish_metadata_rules.apps.AppConfig',
     'flourish_labs.apps.AppConfig',
@@ -264,7 +265,13 @@ DASHBOARD_URL_NAMES = {
     'subject_dashboard_url': 'flourish_dashboard:subject_dashboard_url',
     'odk_listboard_url': 'edc_odk:odk_listboard_url',
     'export_listboard_url': 'flourish_export:export_listboard_url',
-    'flourish_calendar_url': 'flourish_calendar:calendar'
+    'flourish_calendar_url': 'flourish_calendar:calendar',
+    'pre_flourish_maternal_dataset_listboard_url': 'pre_flourish:pre_flourish_maternal_dataset_listboard_url',
+    # pre flourish urls
+    'pre_flourish_follow_listboard_url': 'pre_flourish_follow:pre_flourish_follow_listboard_url',
+    'pre_flourish_follow_appt_listboard_url': 'pre_flourish_follow:pre_flourish_follow_appt_listboard_url',
+    'pre_flourish_follow_booking_listboard_url': 'pre_flourish_follow:pre_flourish_follow_booking_listboard_url',
+    'pre_flourish_follow_book_listboard_url': 'pre_flourish_follow:pre_flourish_follow_book_listboard_url',
 }
 
 
@@ -290,6 +297,11 @@ DASHBOARD_BASE_TEMPLATES = {
     'child_screening_listboard_template': 'flourish_dashboard/child_subject/screening_listboard.html',
     'odk_listboard_template': 'edc_odk/odk_forms/listboard.html',
     'export_listboard_template': 'flourish_export/listboard.html',
+    # Preflourish_follow_templates
+    'pre_flourish_follow_listboard_template': 'pre_flourish_follow/follow_listboard.html',
+    'pre_flourish_follow_appt_listboard_template': 'pre_flourish_follow/appointments_windows_listboards.html',
+    'pre_flourish_follow_booking_listboard_template': 'pre_flourish_follow/bookings_listboard.html',
+    'pre_flourish_follow_book_listboard_template': 'pre_flourish_follow/book_listboard.html',
 }
 
 # Static files (CSS, JavaScript, Images)

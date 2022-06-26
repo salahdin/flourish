@@ -60,6 +60,7 @@ class EdcDataManagerAppConfig(BaseEdcDataManagerAppConfig):
             ('se_dmc', 'SE & DMC'),
             ['adiphoko@bhp.org.bw', 'ckgathi@bhp.org.bw', 'imosweu@bhp.org.bw',
              'mchawawa@bhp.org.bw']]}
+    child_subject = True
 
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):

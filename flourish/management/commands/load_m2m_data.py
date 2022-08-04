@@ -3,6 +3,7 @@ from django.apps import apps as django_apps
 from django.core.management.base import BaseCommand
 
 from flourish_caregiver import old_list_data
+from flourish_child import old_list_data as child_old_list
 
 
 class Command(BaseCommand):
@@ -77,7 +78,6 @@ class Command(BaseCommand):
         new_list = self.new_list_data(model_name=model_name)
 
         list_data_map = dict(zip(old_list, new_list))
-
         for value in old_values:
             new_value = list_data_map.get(value[0])
             m2m_obj = self.get_model_obj(
@@ -87,6 +87,7 @@ class Command(BaseCommand):
                 f'Updated {obj.id}, {field_name}: value => {new_value}'))
 
     def old_list_data(self, model_name=None):
+        old_list_data.list_data.update(child_old_list.list_data)
         values = old_list_data.list_data.get(model_name)
         return [value[0] for value in values]
 

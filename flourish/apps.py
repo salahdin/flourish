@@ -155,11 +155,11 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
                          'infant_pl_cytokines': 'Whole Blood EDTA',
                          'dna_pcr': 'Dry Blood Spot',
                          'stool_sample': 'Stool',
-                         'fasting_lipids': 'Whole Blood Red Top (NON)',
+                         'chemistry': 'Whole Blood Red Top (NON)',
                          'fasting_glucose': 'Whole Blood Grey Top',
                          'fasting_insulin': 'Whole Blood Red Top (NON)',
                          'lead_level': 'Whole Blood EDTA',
-                         'anemia_testing': 'Whole Blood EDTA'}
+                         'fbc': 'Whole Blood EDTA'}
     container_type_match = {'viral_load': 'EDTA tube',
                             'cd4': 'EDTA tube',
                             'hematology': 'EDTA tube',
@@ -167,11 +167,11 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
                             'infant_pl_cytokines': 'EDTA Tube',
                             'dna_pcr': 'Filter paper',
                             'stool_sample': 'Cryogenic Vial',
-                            'fasting_lipids': 'NON/Red top tube',
+                            'chemistry': 'NON/Red top tube',
                             'fasting_glucose': 'Sodium Flouride/Pottasium Oxalate',
                             'fasting_insulin': 'NON/Red top tube',
                             'lead_level': 'EDTA tube',
-                            'anemia_testing': 'EDTA tube'}
+                            'fbc': 'EDTA tube'}
     template_match = {'viral_load': 'HIV RNA PCR',
                       'cd4': 'CD4/CD8',
                       'hematology': 'CBC',
@@ -179,8 +179,8 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
                       'infant_pl_cytokines': 'Plasma for Cytokines',
                       'dna_pcr': 'HIV DNA PCR',
                       'stool_sample': 'Stool Storage',
-                      'fasting_lipids': 'Lipids + LFTs',
+                      'chemistry': 'Lipids + LFTs',
                       'fasting_glucose': 'Fasting glucose',
                       'fasting_insulin': 'Insulin',
                       'lead_level': 'Lead & Storage plasma',
-                      'anemia_testing': 'CBC'}
+                      'fbc': 'CBC'}

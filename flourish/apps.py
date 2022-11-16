@@ -182,5 +182,5 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
                       'chemistry': 'Lipids + LFTs',
                       'fasting_glucose': 'Fasting glucose',
                       'fasting_insulin': 'Insulin',
-                      'lead_level': 'Lead & Storage plasma',
+                      'lead_level': 'Lead',
                       'fbc': 'CBC'}

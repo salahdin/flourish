@@ -159,7 +159,8 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
                          'fasting_glucose': 'Whole Blood Grey Top',
                          'fasting_insulin': 'Whole Blood Red Top (NON)',
                          'lead_level': 'Whole Blood EDTA',
-                         'fbc': 'Whole Blood EDTA'}
+                         'fbc': 'Whole Blood EDTA',
+                         'child_pl_store': 'Whole Blood EDTA'}
     container_type_match = {'viral_load': 'EDTA tube',
                             'cd4': 'EDTA tube',
                             'hematology': 'EDTA tube',
@@ -171,7 +172,8 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
                             'fasting_glucose': 'Sodium Flouride/Pottasium Oxalate',
                             'fasting_insulin': 'NON/Red top tube',
                             'lead_level': 'EDTA tube',
-                            'fbc': 'EDTA tube'}
+                            'fbc': 'EDTA tube',
+                            'child_pl_store': 'EDTA tube'}
     template_match = {'viral_load': 'HIV RNA PCR',
                       'cd4': 'CD4/CD8',
                       'hematology': 'CBC',
@@ -183,4 +185,5 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
                       'fasting_glucose': 'Fasting glucose',
                       'fasting_insulin': 'Insulin',
                       'lead_level': 'Lead',
-                      'fbc': 'CBC'}
+                      'fbc': 'CBC',
+                      'child_pl_store': 'Storage plasma'}

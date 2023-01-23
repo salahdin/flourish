@@ -1,16 +1,46 @@
 local_date,label,country
+2021-01-01,New Year,botswana
 2021-01-02,Public Holiday,botswana
-2021-04-02,Good Friday,botswana
-2021-04-03,Holy Saturday,botswana
-2021-04-05,Easter Monday,botswana
+2021-04-10,Good Friday,botswana
+2021-04-13,Easter Monday,botswana
 2021-05-01,May Day/Labour Day,botswana
-2021-05-13,Ascension Day,botswana
+2021-05-03,May Public Holiday,botswana
+2021-05-21,Ascension Day,botswana
 2021-07-01,Sir Seretse Khama Day,botswana
-2021-07-20,President's Day,botswana
-2021-07-21,Public Holiday,botswana
+2021-07-19,President's Day,botswana
+2021-07-20,Public Holiday,botswana
 2021-09-30,Botswana Day,botswana
 2021-10-01,Public Holiday,botswana
 2021-12-25,Christmas Day,botswana
 2021-12-26,Boxing Day,botswana
 2021-12-27,Public Holiday,botswana
-2021-01-01,New Year,botswana
+2021-12-28,Public Holiday,botswana
+2022-01-03,Public Holiday,botswana
+2022-01-04,Public Holiday,botswana
+2022-04-15,Good Friday,botswana
+2022-04-18,Easter Monday,botswana
+2022-05-02,May Public Holiday,botswana
+2022-05-26,Ascension Day,botswana
+2022-07-01,Sir Seretse Khama Day,botswana
+2022-07-18,President's Day,botswana
+2022-07-19,Public Holiday,botswana
+2022-09-30,Botswana Day,botswana
+2022-12-25,Christmas Day,botswana
+2022-12-26,Boxing Day,botswana
+2022-12-27,Christmas Day (in lieu),botswana
+2023-01-01,New Year,botswana
+2023-01-02,Public Holiday,botswana
+2023-01-03,New Year's Day (in lieu),botswana
+2023-04-07,Good Friday,botswana
+2023-04-08,Public Holiday,botswana
+2023-04-10,Easter Monday,botswana
+2023-05-01,Labour Day,botswana
+2023-05-18,Ascension Day,botswana
+2023-07-01,Sir Seretse Khama Day,botswana
+2023-07-17,President's Day,botswana
+2023-07-18,President's Day Holiday,botswana
+2023-09-30,Botswana Day,botswana
+2023-10-01,Botswana Day Holiday,botswana
+2023-10-02,Botswana Day (in lieu),botswana
+2023-12-25,Christmas Day,botswana
+2023-12-26,Boxing Day,botswana

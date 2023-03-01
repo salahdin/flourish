@@ -167,7 +167,7 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
                          'fbc': 'Whole Blood EDTA',
                          'child_pl_store': 'Whole Blood EDTA',
                          'lithium_heparin': 'Whole Blood Lithium Heparin',
-                         'serum_storage': 'Whole Blood Red Top (NON)'}
+                         'serum_storage': 'Whole Blood SST'}
     container_type_match = {'viral_load': 'EDTA tube',
                             'cd4': 'EDTA tube',
                             'hematology': 'EDTA tube',
@@ -183,7 +183,7 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
                             'fbc': 'EDTA tube',
                             'child_pl_store': 'EDTA tube',
                             'lithium_heparin': 'Lithium Heparin tube',
-                            'serum_storage': 'NON/Red top tube'}
+                            'serum_storage': 'SST Tube'}
     template_match = {'viral_load': 'HIV RNA PCR',
                       'cd4': 'CD4/CD8',
                       'hematology': 'CBC',

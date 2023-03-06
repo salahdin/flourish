@@ -165,7 +165,9 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
                          'fasting_insulin': 'Whole Blood SST',
                          'lead_level': 'Whole Blood EDTA',
                          'fbc': 'Whole Blood EDTA',
-                         'child_pl_store': 'Whole Blood EDTA'}
+                         'child_pl_store': 'Whole Blood EDTA',
+                         'lithium_heparin': 'Whole Blood Lithium Heparin',
+                         'serum_storage': 'Whole Blood SST'}
     container_type_match = {'viral_load': 'EDTA tube',
                             'cd4': 'EDTA tube',
                             'hematology': 'EDTA tube',
@@ -179,7 +181,9 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
                             'fasting_insulin': 'SST Tube',
                             'lead_level': 'EDTA tube',
                             'fbc': 'EDTA tube',
-                            'child_pl_store': 'EDTA tube'}
+                            'child_pl_store': 'EDTA tube',
+                            'lithium_heparin': 'Lithium Heparin tube',
+                            'serum_storage': 'SST Tube'}
     template_match = {'viral_load': 'HIV RNA PCR',
                       'cd4': 'CD4/CD8',
                       'hematology': 'CBC',
@@ -193,4 +197,6 @@ class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
                       'fasting_insulin': 'Insulin',
                       'lead_level': 'Lead',
                       'fbc': 'CBC',
-                      'child_pl_store': 'Storage plasma'}
+                      'child_pl_store': 'Storage plasma',
+                      'lithium_heparin': 'QuantiFERON-TB Gold Plus',
+                      'serum_storage': 'Storage serum'}

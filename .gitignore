@@ -134,7 +134,6 @@ dmypy.json
 *.jpeg
 *.pdf
 /redis-stable/*
-*.csv
 *.zip
 .idea/*
 *.gif

@@ -131,3 +131,12 @@ dmypy.json
 .pydevproject
 .project
 .settings/
+*.jpeg
+*.pdf
+/redis-stable/*
+*.csv
+*.zip
+.idea/*
+*.gif
+/flourish/static/*
+/media/*

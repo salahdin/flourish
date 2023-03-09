@@ -334,5 +334,7 @@ CACHEOPS = {
     'flourish_prn.*': {'ops': 'all', 'timeout': 60*60*24},
     'flourish_follow.*': {'ops': 'all', 'timeout': 60*60*24},
     'flourish_calendar.*': {'ops': 'all', 'timeout': 60*60*24},
+    'flourish_child.models.child_appointment.Appointment': None,
+    'edc_appointments.*': None,
     '*.*': {'timeout': 60*60},
 }

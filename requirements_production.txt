@@ -37,12 +37,12 @@ git+https://github.com/botswana-harvard/edc-subject-dashboard.git@0.2.7#egg=edc-
 git+https://github.com/botswana-harvard/edc-timepoint.git@0.1.3#egg=edc-timepoint
 git+https://github.com/botswana-harvard/edc-visit-schedule.git@0.2.14#egg=edc-visit-schedule
 git+https://github.com/botswana-harvard/edc-visit-tracking.git@0.2.13#egg=edc-visit-tracking
-git+https://github.com/flourishbhp/flourish-child.git@0.3.82#egg=flourish-child
-git+https://github.com/flourishbhp/flourish-child-validations.git@0.1.51#egg=flourish-child-validations
-git+https://github.com/flourishbhp/flourish-caregiver.git@0.3.99#egg=flourish-caregiver
-git+https://github.com/flourishbhp/flourish-dashboard.git@0.1.62#egg=flourish-dashboard
-git+https://github.com/flourishbhp/flourish-visit-schedule.git@0.1.48#egg=flourish-visit-schedule
-git+https://github.com/flourishbhp/flourish-follow.git@0.1.25#egg=flourish-follow
+git+https://github.com/flourishbhp/flourish-child.git@0.3.83#egg=flourish-child
+git+https://github.com/flourishbhp/flourish-child-validations.git@0.1.52#egg=flourish-child-validations
+git+https://github.com/flourishbhp/flourish-caregiver.git@0.3.100#egg=flourish-caregiver
+git+https://github.com/flourishbhp/flourish-dashboard.git@0.1.63#egg=flourish-dashboard
+git+https://github.com/flourishbhp/flourish-visit-schedule.git@0.1.49#egg=flourish-visit-schedule
+git+https://github.com/flourishbhp/flourish-follow.git@0.1.26#egg=flourish-follow
 git+https://github.com/flourishbhp/flourish-reports.git@0.1.19#egg=flourish-reports
 git+https://github.com/flourishbhp/flourish-form-validations.git@0.1.57#egg=flourish-form-validations
 git+https://github.com/flourishbhp/flourish-prn.git@0.1.15#egg=flourish-prn
@@ -53,7 +53,6 @@ git+https://github.com/flourishbhp/flourish-metadata-rules@0.1.51#egg=flourish-m
 git+https://github.com/flourishbhp/flourish-labs@0.1.7#egg=flourish-labs
 git+https://github.com/flourishbhp/flourish-calendar@0.1.26#egg=flourish-calendar
 git+https://github.com/flourishbhp/pre-flourish-follow.git@0.1.4#egg=pre-flourish-follow
-django-q
 pandas
 jupyter
 django-pandas
@@ -64,3 +63,4 @@ xlwt
 matplotlib
 flexitext
 openpyxl
+pypdfium2==3.8.0

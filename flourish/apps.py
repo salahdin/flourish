@@ -136,9 +136,9 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
 
 
 class EdcOdkAppConfig(BaseEdcOdkAppConfig):
-    adult_child_study=False
-    adult_consent_model='flourish_caregiver.subjectconsent'
-    child_assent_model='flourish_child.childassent'
+    adult_child_study = False
+    adult_consent_model = 'flourish_caregiver.subjectconsent'
+    child_assent_model = 'flourish_child.childassent'
     clinician_notes_form_ids = {
         'flourish_child': 'child_cliniciannotes_v1.0',
         'flourish_caregiver': 'caregiver_cliniciannotes_v1.0'}
@@ -149,9 +149,13 @@ class EdcOdkAppConfig(BaseEdcOdkAppConfig):
 
 
 class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
-    host = "https://bhplims.bhp.org.bw"
-    client = "Flourish"
+    host = "https://bhplims-dev.bhp.org.bw"
+    client = "TESTING"
     courier = ""
+    result_models = {'flourish_caregiver':
+                     ['caregiverrequisitionresult', 'caregiverresultvalue'],
+                     'flourish_child':
+                     ['childrequisitionresult', 'childresultvalue']}
     sample_type_match = {'viral_load': 'Whole Blood EDTA',
                          'cd4': 'Whole Blood EDTA',
                          'hematology': 'Whole Blood EDTA',

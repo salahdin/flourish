@@ -149,8 +149,8 @@ class EdcOdkAppConfig(BaseEdcOdkAppConfig):
 
 
 class EdcSenaiteInterfaceAppConfig(BaseEdcSenaiteInterfaceAppConfig):
-    host = "https://bhplims-dev.bhp.org.bw"
-    client = "TESTING"
+    host = "https://bhplims.bhp.org.bw"
+    client = "Flourish"
     courier = ""
     result_models = {'flourish_caregiver':
                      ['caregiverrequisitionresult', 'caregiverresultvalue'],

@@ -103,7 +103,6 @@ urlpatterns = [
     path('edc_da_api/', include('edc_document_archieve.urls')),
     path('calendar/', include('flourish_calendar.urls')),
     path('admin/', flourish_calendar_admin.urls),
-    path('__debug__/', include('debug_toolbar.urls')),
 
 ]
 

@@ -189,6 +189,12 @@ ODK_CONFIGURATION = {
     },
 }
 
+SENAITE_CONFIGURATION = {
+    'OPTIONS': {
+        'read_default_file': '/etc/edc_senaite_interface/senaite.conf',
+    },
+}
+
 # Email configurations
 EMAIL_BACKEND = config['email_conf'].get('email_backend')
 EMAIL_HOST = config['email_conf'].get('email_host')
@@ -275,6 +281,10 @@ DASHBOARD_URL_NAMES = {
     'pre_flourish_follow_appt_listboard_url': 'pre_flourish_follow:pre_flourish_follow_appt_listboard_url',
     'pre_flourish_follow_booking_listboard_url': 'pre_flourish_follow:pre_flourish_follow_booking_listboard_url',
     'pre_flourish_follow_book_listboard_url': 'pre_flourish_follow:pre_flourish_follow_book_listboard_url',
+    # Senaite Interface URLs
+    # Use caregiver result listboard as default/entry listboard.
+    'senaite_result_listboard_url': 'flourish_dashboard:caregiver_result_listboard_url',
+    'child_result_listboard_url': 'flourish_dashboard:child_result_listboard_url'
 }
 
 DASHBOARD_BASE_TEMPLATES = {
@@ -305,6 +315,8 @@ DASHBOARD_BASE_TEMPLATES = {
     'pre_flourish_follow_appt_listboard_template': 'pre_flourish_follow/appointments_windows_listboards.html',
     'pre_flourish_follow_booking_listboard_template': 'pre_flourish_follow/bookings_listboard.html',
     'pre_flourish_follow_book_listboard_template': 'pre_flourish_follow/book_listboard.html',
+    # Override senaite result template
+    'senaite_result_listboard_template': 'flourish_dashboard/result_listboard.html',
 }
 
 # Static files (CSS, JavaScript, Images)
